@@ -1,0 +1,10 @@
+{
+  "editorSettings" : {
+
+  },
+  "group" : "Components",
+  "id" : "components.MapView",
+  "invocation" : "once",
+  "name" : "MapView",
+  "overview" : ""
+}

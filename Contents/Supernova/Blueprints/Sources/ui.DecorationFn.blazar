@@ -1,0 +1,54 @@
+{* param component: Component (may be null for abstract layout nodes) *}
+{[ var c self.component /]}
+
+{[ if @is.nil(c) ]} 
+  {[ if @is.nonNil(self.componentId) ]}
+    {* this branch allows standalone execution in editor *}
+    {[ set c @project.componentById(componentId) /]}
+  {[ else ]}
+    {* fallback to case of null component *}
+    {[ set c @new.dict() /]}
+  {[/]}
+
+{[/]}
+
+{[if @is.nonNil(c.style) ]}
+ {[var s c.style /]} {* TODO: move following hasXX/apply flags to function to be reused in button *}
+ {[ var hasBackground @and(@is.nonNil(s.backgroundColor), @is.gt(s.backgroundColor.alpha, 0)) /]}
+ {[ var hasGradient @is.nonNil(s.backgroundGradient) /]}
+ {[ var hasShadow @and(@is.nonNil(s.shadow),  @is.gt(s.shadow.color.alpha, 0)) /]}
+ {[ var hasBorder @and(@is.nonNil(s.border),  @is.gt(s.border.color.alpha, 0)) /]}
+ {[ var hasRadius @is.gt(s.cornerRadius, 0) /]}
+ {[ var applyDecoration @or(hasBackground, hasGradient, hasShadow, hasBorder, hasRadius) /]}
+
+
+ {* THIS CODE MUST BE MOVED TO WRAPPERS: 
+  button consumes decoration itself:  *}
+ {* [ var applyDecoration @and(@not(@is.equals(c.type, "button")), hasDecoration) /] *}
+ 
+ {[if applyDecoration ]}
+BoxDecoration(
+  {* //todo: imageDecoration *}
+  {[if hasGradient]}
+    gradient: {[inject "ui.Gradient" context s.backgroundGradient /]},
+  {[else if hasBackground ]}
+    color: {[inject "ui.Color" context s.backgroundColor /]},
+  {[/]}
+  {[if hasBorder ]} 
+    border: Border.all(
+      color: {[inject "ui.Color" context s.border.color /]},
+      width: {{s.border.width}},
+    ),
+  {[/]}
+  {[if hasRadius]}
+    borderRadius: BorderRadius.all(Radius.circular({{ s.cornerRadius }})),
+  {[/]}
+  {[if hasShadow]} 
+    boxShadow: [ {[inject "ui.Shadow" context c.style.shadow /]}, ],
+   {[/]}
+)
+ {[/]}
+ {[return @new.dict("apply", applyDecoration) /]}
+{[else]}
+ {[return @new.dict("apply", false) /]}
+{[/]}

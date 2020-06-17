@@ -1,0 +1,95 @@
+{
+  "assetIds" : [
+
+  ],
+  "author" : "Ivan Terpugov",
+  "blueprintIds" : [
+    "components.Button",
+    "components.Image",
+    "components.Text",
+    "components.ButtonContent",
+    "components.ButtonAttributes",
+    "helpers.WidgetName",
+    "helpers.ScreenPathSlug",
+    "helpers.ImportRoot",
+    "primary.MainDart",
+    "helpers.ScreenPath",
+    "components.MapView",
+    "components.Switch",
+    "layout.AlignmentFn",
+    "layout.AlignmentWrapper",
+    "components.Dispatcher",
+    "layout.ExpandedWrapper",
+    "layout.InsetsFn",
+    "layout.Walker",
+    "layout.LinearContainer",
+    "layout.Insets.kill",
+    "components.Scaffold",
+    "layout.StackChildPositionFn",
+    "layout.StackChildWrapper",
+    "layout.StackContainer",
+    "components.TextField",
+    "layout.Wrapper",
+    "layout.DimensionsFn",
+    "layout.Positioned",
+    "collections.CollectionView",
+    "collections.CollectionViewCell",
+    "collections.TableView",
+    "collections.TableViewCell",
+    "collections.CollectionItemEmitPath",
+    "helpers.actions.Handlers",
+    "ui.OpacityWrapper",
+    "ui.Color",
+    "ui.Decoration.kill",
+    "ui.DecorationFn",
+    "ui.Gradient",
+    "ui.Insets",
+    "ui.Shadow",
+    "ui.TextStyle",
+    "ui.WidthHeight",
+    "primary.Tabbar",
+    "primary.Screen",
+    "collections.CollectionItemsImportFn",
+    "primary.Pubspec.yaml",
+    "helpers.Imports",
+    "helpers.actions.Imports.kill",
+    "helpers.ListImportedPackages"
+  ],
+  "contactEmail" : "ivan@supernova.io",
+  "id" : "1181EBAB-3AE3-4F29-A785-5C2A327EE426",
+  "input" : "sn.project",
+  "interface" : {
+    "attributes" : [
+
+    ]
+  },
+  "mapping" : [
+    {
+      "blueprintId" : "primary.MainDart",
+      "id" : "ITtbPKlxH",
+      "name" : "Main.dart",
+      "overview" : "Writes lib\/Main.dart",
+      "rule" : "lib\/main.dart",
+      "type" : "blueprint"
+    },
+    {
+      "blueprintId" : "primary.Pubspec.yaml",
+      "id" : "auV9lVRTf",
+      "name" : "Pubspec.yaml",
+      "overview" : "Writes pubspec.yaml",
+      "rule" : "pubspec.yaml",
+      "type" : "blueprint"
+    },
+    {
+      "blueprintId" : "primary.Screen",
+      "id" : "MVXXVKjrU",
+      "name" : "Screens generator",
+      "overview" : "Writes screens",
+      "rule" : "lib\/{[inject \"helpers.ScreenPath\" context self \/]}",
+      "type" : "blueprint"
+    }
+  ],
+  "name" : "Flutter Exporter",
+  "overview" : "WIP Flutter exporter",
+  "version" : "0.0.1"
+}

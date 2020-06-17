@@ -1,0 +1,16 @@
+import 'package:flutter/material.dart';
+{[var home @project.allScreens().first() /]}
+import '{[inject "helpers.ImportRoot" context @new.dict()/]}{[inject "helpers.ScreenPath" context @new.dict().add("screenId", home.id)/]}';
+
+void main() => runApp(App());
+
+class App extends StatelessWidget {
+  
+  @override
+  Widget build(BuildContext context) {
+  
+    return MaterialApp(
+      home: {[inject "helpers.WidgetName" context home/]}(),
+    );
+  }
+}

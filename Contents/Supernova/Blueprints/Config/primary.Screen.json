@@ -1,0 +1,10 @@
+{
+  "editorSettings" : {
+    "editorScreenId" : "CVt-Yd-qkp"
+  },
+  "group" : "Primary",
+  "id" : "primary.Screen",
+  "invocation" : "oncePerScreen",
+  "name" : "Screen",
+  "overview" : ""
+}

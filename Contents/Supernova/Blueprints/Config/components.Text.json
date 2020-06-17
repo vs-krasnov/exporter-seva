@@ -1,0 +1,10 @@
+{
+  "editorSettings" : {
+    "editorComponentId" : "shV-g4-LNE"
+  },
+  "group" : "Components",
+  "id" : "components.Text",
+  "invocation" : "oncePerComponent",
+  "name" : "Text",
+  "overview" : ""
+}

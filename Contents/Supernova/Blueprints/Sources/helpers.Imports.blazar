@@ -1,0 +1,22 @@
+{* param: imports: [{screenId: string}, ..} *}
+{[ let empty @new.dict() /]}
+
+{* packages first *}
+{[ for import in imports ]}
+ {[ if @is.equals(import.type, "package") ]}
+  import 'package:{{ import.package }}';
+ {[/]}
+{[/]}
+{* screens next *}
+{[ for import in imports ]}
+ {[ if @is.equals(import.type, "screen") ]}
+  {[ var screen @project.screenById(import.screenId) /]}
+  import '{[inject "helpers.ImportRoot" context empty /]}{[ inject "helpers.ScreenPath" context import /]}';
+ {[/]}
+{[/]}
+{* local (in same dir) files last *}
+{[ for import in imports ]}
+ {[ if @is.equals(import.type, "local") ]}
+  import '{[ inject "helpers.ImportRoot" context empty /]}{{ localImportPath }}{{ import.filename }}';
+ {[/]}
+{[/]}

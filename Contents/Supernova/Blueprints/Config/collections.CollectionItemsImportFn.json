@@ -1,0 +1,10 @@
+{
+  "editorSettings" : {
+    "editorScreenId" : "0V1-lK-p7o"
+  },
+  "group" : "Collections",
+  "id" : "collections.CollectionItemsImportFn",
+  "invocation" : "oncePerScreen",
+  "name" : "Collection Items Import Function",
+  "overview" : ""
+}

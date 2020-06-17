@@ -1,0 +1,10 @@
+{
+  "editorSettings" : {
+
+  },
+  "group" : "Components",
+  "id" : "components.Dispatcher",
+  "invocation" : "oncePerComponent",
+  "name" : "Component Dispatcher",
+  "overview" : ""
+}

@@ -1,0 +1,10 @@
+{
+  "editorSettings" : {
+
+  },
+  "group" : "Primary",
+  "id" : "primary.Tabbar",
+  "invocation" : "once",
+  "name" : "Tab bar",
+  "overview" : ""
+}

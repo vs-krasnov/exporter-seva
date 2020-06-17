@@ -1,0 +1,37 @@
+{* param node FlexboxNode; param parent FlexboxNode *}
+{[ var n node /]}
+{[ var p parent /]}
+{[ if @is.nil(n) ]}
+  {[ var layout @compute.layout.flexboxForScreenById(screenId) /]}
+  {[ set n layout/]}
+  {[ set p layout.nonExistent /]}
+{[/]}
+
+{[ var wrapperType "layout.Wrapper" /]}
+{[ if @is.equals(n.parentType, "stack") ]}
+  {[set wrapperType "layout.StackChildWrapper" /]}
+{[/]}
+
+{[ switch n.type ]}
+
+ {[ case "component" ]}
+   {[ inject wrapperType context @new.dict("node", n).add("parent", p)]}
+     {[ inject "components.Dispatcher" context n /]}
+    {[/]}
+  {[ case "spacer" ]}
+    Spacer() 
+
+  {[ case "linear" ]}
+    {[ inject wrapperType context @new.dict("node", n).add("parent", p) ]}
+      {[ inject "layout.LinearContainer" context @new.dict().add("node", n).add("parent", p) /]}
+    {[/]}
+
+  {[case "stack" ]}
+    {[inject wrapperType context @new.dict("node", n).add("parent", p)]}
+      {[inject "layout.StackContainer" context @new.dict().add("node", n).add("parent", p) /]}
+    {[/]}
+
+{[default]}
+Container(/* unknown type: '{{n.type}}' */)
+
+{[/]}

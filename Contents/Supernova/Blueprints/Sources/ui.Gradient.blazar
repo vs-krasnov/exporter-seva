@@ -1,0 +1,22 @@
+{* currently only Linear Gradient *}
+LinearGradient(
+  begin: Alignment(
+     {{from.x.rounded(5)}}, 
+     {{from.y.rounded(5)}}
+  ),
+  end: Alignment(
+     {{to.x.rounded(5)}}, 
+     {{to.y.rounded(5)}}
+  ),
+  stops: [
+     {[for stop in stops]}
+     {{stop.position}},
+     {[/]}
+  ],
+  colors: [
+     {[for stop in stops]}
+     {[ inject "ui.Color" context stop.color /]},
+     {[/]}
+  ],
+)
+

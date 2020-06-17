@@ -1,0 +1,24 @@
+{[ var component @project.componentById(componentId) /]} 
+{[ var text component.style.text /]}
+  
+TextField(
+ decoration: InputDecoration(
+     hintText: "{{ text.string.slashDoubleQuotes().slashNewlines() }}",
+     border: InputBorder.none,
+     contentPadding: {[ inject "ui.Insets" context component.style.padding /]},
+   ),
+
+ style: {[ inject "ui.TextStyle" context text  /]} ,   
+   
+
+   {[ if component.properties.secure]}
+   // secure: true,
+   {[/]}
+   {[ if @not(component.properties.autoCorrect) ]} 
+   autocorrect: false,
+   {[/]}
+
+   {[ if component.properties.singleLine ]}
+   maxLines: 1,
+   {[/]}
+)

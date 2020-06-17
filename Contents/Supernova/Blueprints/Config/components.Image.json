@@ -1,0 +1,11 @@
+{
+  "editorSettings" : {
+    "editorComponentId" : "5Be-Vz-8Hl",
+    "editorScreenId" : "0V1-lK-p7o"
+  },
+  "group" : "Components",
+  "id" : "components.Image",
+  "invocation" : "oncePerComponent",
+  "name" : "Image",
+  "overview" : ""
+}

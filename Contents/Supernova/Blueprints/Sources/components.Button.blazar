@@ -1,0 +1,3 @@
+FlatButton(
+ {[inject "components.ButtonAttributes" context self /]}
+)

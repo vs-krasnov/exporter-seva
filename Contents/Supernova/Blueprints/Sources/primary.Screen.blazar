@@ -1,0 +1,48 @@
+import 'package:flutter/material.dart';
+
+{[ global EMIT_PATH @call("helpers.ScreenPathSlug", self).output.suffixed("/").prefixed("lib/") /]} 
+{[ let localImportPath @call("helpers.ScreenPathSlug", self).output.suffixed("/") /]}
+
+{* handlers for buttons, switches, etc *}
+{[ var actions @call("helpers.actions.Handlers", self) /]}
+{[ var imports actions.imports /]}
+{* import of collection items *}
+{[ set imports imports.concat(@call("collections.CollectionItemsImportFn", self).imports) /]}
+{* import of external packages *}
+{[ set imports imports.concat(@call("helpers.ListImportedPackages", self).imports) /]}
+
+{[ inject "helpers.Imports" context @new.dict("imports", imports).add("localImportPath", localImportPath) /]}
+
+
+{[ var screen @project.screenById(screenId) /]}
+ 
+{*
+{[if screen.animations.count()]}
+  {[for anim in data.animations]}
+     {[for element in anim.elements]}
+       {[var elementId element.componentId.camelcased(true) /]}
+       {[var animClassNameBase screen.codeClassName.suffixed("WidgetAnimation") /]}
+       {[var animClassName elementId.camelcased(false).prefixed(animClassNameBase) /]}
+
+       {[var filename animClassName.suffixed("-x.dart") /]}
+       {[emit file filename ]}
+       {[inject "fl.code.animation" context element.add("className", animClassName) /]}
+       {[/]}
+     {[/]}
+  {[/]}
+{[/]}
+ *}
+
+{[ var widgetName @call("helpers.WidgetName", screen).output /]}
+class {{ widgetName }} extends StatefulWidget {
+  createState() => _{{ widgetName }}State();
+}
+
+class _{{ widgetName }}State extends State<{{ widgetName }}>{
+{{ actions.output }}
+
+  @override
+  Widget build(BuildContext context) {
+    return {[ inject "components.Scaffold" context @new.dict().add("screenId", screenId) /]};
+ } 
+}

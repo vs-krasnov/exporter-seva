@@ -1,0 +1,63 @@
+
+{[ var tabGroup @project.tabGroupById(screenId) /]}
+{[ var firstScreenId tabGroup.screens.first() /]}
+{[ var tabBar @project.tabbarForScreenId(firstScreenId) /]}
+{[var widgetName @call("helpers.WidgetName", tabGroup).output /]}
+
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+{[for tabScreenId in tabGroup.screens]}
+import '{[inject "helpers.ImportRoot" context self /]}{[inject "helpers.ScreenPath" context @new.dict("screenId", tabScreenId) /]}';
+{[/]}
+
+class {{ widgetName }} extends StatefulWidget {
+  
+  @override
+  State<StatefulWidget> createState() => _{{ widgetName }}State();
+}
+
+
+class _{{ widgetName }}State extends State<{{ widgetName }}> {
+  List<Widget> _tabWidgets = [
+    {[for tabScreenId in tabGroup.screens ]}
+      {[var screen @project.screenById(tabScreenId) /]}
+      {{@call("fl.helper.WidgetName", screen).output}}(),
+    {[/]}
+  ];
+  int _currentIndex = 0;
+  
+  void _onTabChanged(int index) => this.setState(() => _currentIndex = index);
+  
+  @override
+  Widget build(BuildContext context) {
+  
+    return Scaffold(
+      body: _tabWidgets[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+      fixedColor: {[ inject "ui.Color" context tabBar.style.itemSelectedTintColor.value /]},
+        currentIndex: _currentIndex,
+        onTap: (index) => this._onTabChanged(index),
+        items: [
+         {[ for item in tabBar.items ]}
+          BottomNavigationBarItem(
+           icon: Image.asset(
+              "assets/images/active-icon-6.png",
+              width: 48,
+              height: 48,
+            ),
+            title: Text(
+              "{{item.title}}",
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                color: Color.fromARGB(255, 0, 0, 0),
+                fontWeight: FontWeight.w400,
+                fontSize: 12,
+              ),
+            ),
+          ),
+         {[/]}
+        ]
+       ),
+    );
+  }
+}

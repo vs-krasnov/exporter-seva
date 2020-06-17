@@ -1,0 +1,12 @@
+TextStyle(
+  color: {[inject "ui.Color" context color /]},
+  fontFamily: "{{font.family}}",
+  fontWeight: FontWeight.w{{font.weight}},
+  fontSize: {{font.size}},
+  {[if @not(@is.equals(kern, 0))]}
+  letterSpacing: {{kern}},
+  {[/]}
+  {[if @is.gt(lineHeight, 0) ]}
+  height: {{lineHeight.dividedBy(font.size).rounded(5)}},
+  {[/]}
+)

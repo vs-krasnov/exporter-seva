@@ -1,0 +1,10 @@
+{
+  "editorSettings" : {
+
+  },
+  "group" : "helpers",
+  "id" : "helpers.ScreenPath",
+  "invocation" : "oncePerScreen",
+  "name" : "Screen Path ",
+  "overview" : ""
+}

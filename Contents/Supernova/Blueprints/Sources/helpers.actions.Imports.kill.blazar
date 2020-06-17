@@ -1,0 +1,6 @@
+{* param: imports: [{screenId: string}, ..} *}
+
+{[for import in imports ]}
+{[var screen @project.screenById(import.screenId) /]}
+import '{[inject "helpers.ImportRoot" context @new.dict() /]}{[inject "helpers.ScreenPath" context import /]}';
+{[/]}

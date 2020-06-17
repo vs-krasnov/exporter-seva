@@ -1,0 +1,51 @@
+{* param node: FlexboxNode, parent: FlexboxNode? *}
+
+{[ var body "" /]}
+{[ var n node /]}
+{[ var p parent /]}
+
+{[ if @is.nonNil(n) ]}
+ {[ set body #body /]}
+{[ else ]}
+ {* debug branch for running in editor *}
+ {[var layout @compute.layout.flexboxForContainerById(componentId) /]}
+ {[ set n layout.children.at(0) /]}
+ {[ set p layout /]}
+ {[ set body n.componentId.uppercased().extended("'", "'") /]}
+{[/]}
+
+{[ var decoration @call("ui.DecorationFn", @new.dict("componentId", n.componentId)) /]}
+{[ var dimensions @call("layout.DimensionsFn", @new.dict("node", n)) /]}
+{[var position @call("layout.StackChildPositionFn", @new.dict("node", n)) /]}
+{[ var opacity @new.dict("apply", false) /]}
+
+{[ if @is.nonNil(n.componentId) ]}
+  {[ var c @project.componentById(n.componentId) /]}
+  {[ set opacity @new.dict("apply", @is.lt(c.style.opacity, 1)).add("value", c.style.opacity) /]}
+
+  {* button consumes it's decoration itself *}
+  {[ if @is.equals(c.type, "button") ]}
+   {[ set decoration @new.dict("apply", false) /]}
+  {[/]}
+{[/]}
+
+{[ let needContainer @or(decoration.apply, dimensions.apply) /]}
+{[ if needContainer ]}
+  {[ inject "layout.Positioned" context position ]}
+  {[ inject "ui.OpacityWrapper" context @new.dict("opacity", opacity)]}
+    Container(
+    {[ if dimensions.apply ]}
+      {{dimensions.output}}
+    {[/]}
+    {[ if decoration.apply ]}
+      decoration: {{decoration.output}},
+    {[/]}
+      child: {{body}},
+    )
+  {[/]} {* OpacityWrapper *}
+  {[/]} {* position *}
+{[ else ]}
+  {[ inject "layout.Positioned" context position ]}
+    {{body}}
+  {[/]}
+{[/]}

@@ -1,0 +1,2 @@
+{[if @is.equals(width.type, "fixed")]}width: {{width.pixels}},{[/]}
+{[if @is.equals(height.type, "fixed")]}height: {{height.pixels}},{[/]}

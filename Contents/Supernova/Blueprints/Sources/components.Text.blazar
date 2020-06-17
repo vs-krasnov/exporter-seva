@@ -1,0 +1,14 @@
+{[var component @project.componentById(componentId) /]}
+{[var text component.style.text /]}
+Text(
+  "{{ text.string.slashNewlines().slashDoubleQuotes() }}",
+   textAlign: 
+     {[switch text.alignment]}
+       {[case "left"]} TextAlign.left
+       {[case "right"]} TextAlign.right
+       {[case "center"]} TextAlign.center
+     {[/]},
+   style: 
+     {[inject "ui.TextStyle" context text /]},
+
+)

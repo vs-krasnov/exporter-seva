@@ -1,0 +1,14 @@
+{[ var screen @project.screenById(screenId) /]}
+{[ var layout @compute.layout.flexboxForScreenById(screenId) /]}
+Scaffold(
+{[ if @and(@is.nonNil(screen.navigationBarLeftItems), @is.gt(screen.navigationBarLeftItems.count(), 0)) ]}
+ appBar: AppBar(
+    leading: 
+      {[ inject "components.Dispatcher" context screen.navigationBarLeftItems.first() /]},
+  ),
+{[/]}
+body: 
+{[ inject "layout.Walker" context @new.dict().add("node", layout).add("parent", layout.nonExistent) /]},
+)
+
+

@@ -1,0 +1,61 @@
+
+{* param node: FlexboxNode, parent: FlexboxNode? *}
+
+{[ var body "" /]}
+{[ var n node /]}
+{[ var p parent /]}
+
+{[ if @is.nonNil(n) ]}
+ {[ set body #body /]}
+{[ else ]}
+ {* debug branch for running in editor *}
+ {[ var layout @compute.layout.flexboxForScreenById(screenId) /]}
+ {[ set n layout /]}
+ {[ set p layout.nonExistent /]}
+ {[ set body n.componentId.uppercased().extended("'", "'") /]}
+{[/]}
+
+{[ var decoration @call("ui.DecorationFn", @new.dict("componentId", n.componentId)) /]}
+{[ var insets @call("layout.InsetsFn", @new.dict("node", n)) /]}
+{[ var dimensions @call("layout.DimensionsFn", @new.dict("node", n)) /]}
+{[ var alignment @call("layout.AlignmentFn", @new.dict("node", n).add("parent", p)) /]}
+{[ var opacity @new.dict("apply", false) /]}
+{[ var flex @new.dict("apply", false) /]}
+{[ if @is.nonNil(n.flex) ]}
+  {[ set flex @new.dict("apply", true).add("value", n.flex) /]}
+{[/]}
+{[ if @is.nonNil(n.componentId) ]}
+  {[ var c @project.componentById(n.componentId) /]}
+  {[ set opacity @new.dict("apply", @is.lt(c.style.opacity, 1)).add("value", c.style.opacity) /]}
+
+
+  {* button consumes it's decoration itself *}
+  {[ if @is.equals(c.type, "button") ]}
+   {[ set decoration @new.dict("apply", false) /]}
+  {[/]}
+{[/]}
+
+{[ let needContainer @or(decoration.apply, insets.apply, dimensions.apply, alignment.apply) /]}
+
+{[ inject "layout.ExpandedWrapper" context @new.dict("flex", flex) ]}
+  {[ if needContainer ]}
+    {[ inject "ui.OpacityWrapper" context @new.dict("opacity", opacity)]}
+    {[ inject "layout.AlignmentWrapper" context @new.dict("alignment", alignment) ]}
+      Container(
+      {[ if dimensions.apply ]}
+        {{dimensions.output}}
+      {[/]}
+      {[ if decoration.apply ]}
+        decoration: {{decoration.output}},
+      {[/]}
+      {[ if insets.apply ]}
+        margin: {{insets.output}},
+      {[/]}
+        child: {{body}},
+      )
+    {[/]} {* AlignmentWrapper *}
+    {[/]} {* OpacityWrapper *}
+  {[ else ]}
+  {{body}}
+  {[/]} {* if needContainer *}
+{[/]} {* ExpandedWrapper *}

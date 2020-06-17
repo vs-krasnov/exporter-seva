@@ -1,0 +1,37 @@
+
+{* context screenId: string *} 
+{[ var components @project.componentListForScreenId(screenId) /]}
+{[ var imports @new.array() /]}
+
+{[ for comp in components ]}
+{* button *}
+{[ if @is.equals(comp.type, "button")]}
+  {[ var component @project.componentById(comp.id) /]}
+  void {{ component.naming.action }}(BuildContext context){
+    {[ var connection @project.connectionByComponentId(comp.id) /]}
+    {[ if @is.nonNil(connection) ]}
+      {[ var target @project.screenById(connection.destinationScreenId) /]}  
+      {[ if @is.nil(target) ]}
+        {[ var tabgroup @project.tabGroupById(connection.destinationScreenId) /]}
+        {[ if @and(@is.nonNil(tabgroup), @is.gt(tabgroup.screens.count(), 0)) ]}
+          {[ set target @project.screenById(tabgroup.screens.first()) /]} 
+        {[/]}
+      {[/]}
+      {[ if @is.nonNil(target) ]}
+       {[ set imports imports.append(@new.dict("type", "screen").add("screenId", target.id)) /]}
+       {[ var widgetName @call("helpers.WidgetName", target).output /]}
+       Navigator.push(context, MaterialPageRoute(builder: (context) => {{widgetName}}()));
+      {[/]}
+    {[/]}
+  }
+{[/]}
+{* switch *}
+{[ if @is.equals(comp.type, "switch") ]}
+  {[ var component @project.componentById(comp.id) /]}
+  void {{ component.naming.action }}(BuildContext context, bool isOn){  
+  }
+{[/]}
+
+{[/]}
+
+{[ return @new.dict().add("imports", imports) /]}

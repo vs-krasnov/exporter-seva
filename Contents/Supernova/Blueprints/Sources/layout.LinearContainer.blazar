@@ -1,0 +1,25 @@
+{* param: node: FlexboxNode, parent: FlexboxNode *}
+
+{[switch node.group.direction]}
+{[case "column"]}
+Column(
+    crossAxisAlignment: CrossAxisAlignment.{{node.group.crossAxisAlignment}},
+    children: [
+      {[for child in node.children]}
+         {[inject "layout.Walker" context @new.dict().add("node", child).add("parent", node) /]},
+      {[/]}
+    ],
+)
+
+{[case "row"]}
+Row(
+    crossAxisAlignment: CrossAxisAlignment.{{node.group.crossAxisAlignment}},
+    children: [
+      {[for child in node.children]}
+         {[inject "layout.Walker" context @new.dict().add("node", child).add("parent", node) /]},
+      {[/]}
+    ],
+)
+{[default]}
+ XContainer2('UNKNOWN DIRECTION, {{node.componentId}}')
+{[/]}

@@ -1,0 +1,10 @@
+{
+  "editorSettings" : {
+
+  },
+  "group" : "helpers",
+  "id" : "helpers.WidgetName",
+  "invocation" : "once",
+  "name" : "Widget Name",
+  "overview" : ""
+}

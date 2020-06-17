@@ -1,0 +1,29 @@
+{[var component @project.componentById(componentId) /]}
+
+onPressed: () => this.{{component.naming.action}}(context),
+{[var style component.style /]}
+{[if @is.nonNil(style.backgroundColor)]}
+color: {[inject "ui.Color" context style.backgroundColor /]},
+{[/]}
+
+{[if @is.nonNil(style.text.color)]}
+textColor: {[inject "ui.Color" context style.text.color /]},
+{[/]}
+
+{[if @or(@is.nonNil(style.border), @is.gt(style.cornerRadius, 0)) ]}
+shape: RoundedRectangleBorder(
+ {[if @is.nonNil(style.border)]}
+   side: BorderSide(
+      color: {[inject "ui.Color" context style.border.color /]},
+      width: {{style.border.width}},
+      style: BorderStyle.solid,
+   ),
+ {[/]}
+ {[if @is.gt(style.cornerRadius, 0)]}
+   borderRadius: BorderRadius.all(Radius.circular({{style.cornerRadius}})),
+ {[/]}
+),
+{[/]}
+
+padding: {[inject "ui.Insets" context style.padding/]},
+child: {[inject "components.ButtonContent" context self /]},

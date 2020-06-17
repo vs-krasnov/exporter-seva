@@ -1,0 +1,11 @@
+{
+  "editorSettings" : {
+    "editorComponentId" : "a4q-vw-Sp9",
+    "editorScreenId" : "0V1-lK-p7o"
+  },
+  "group" : "Components",
+  "id" : "components.ButtonContent",
+  "invocation" : "oncePerComponent",
+  "name" : "Button Content",
+  "overview" : ""
+}

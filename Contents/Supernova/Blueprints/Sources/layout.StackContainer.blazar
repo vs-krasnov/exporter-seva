@@ -1,0 +1,39 @@
+{[ var n node /]}
+{[ var p parent /]}
+{[ if @is.nil(n) ]}
+  {[var layout @compute.layout.flexboxForContainerById(componentId) /]}
+  {[ set n layout /]}
+{[/]}
+
+{[ var alignment n.nonExistent /]}
+{[ switch n.group.verticalAlignment ]}
+  {[ case "start" ]}
+    {[ switch n.group.horizontalAlignment ]}
+     {[ case "end" ]} {[ set alignment "topRight" /]}
+     {[ case "center" ]} {[ set alignment "topCenter" /]}
+    {[/]}
+  {[case "end" ]}
+    {[ switch n.group.horizontalAlignment ]}
+     {[ case "start" ]} {[ set alignment "bottomLeft" /]}
+     {[ case "center" ]} {[ set alignment "bottomCenter" /]}
+     {[ case "end" ]} {[ set alignment "bottomRight" /]}
+    {[/]}
+  {[case "center" ]}
+    {[ switch n.group.horizontalAlignment ]}
+     {[ case "start" ]} {[ set alignment "centerLeft" /]}
+     {[ case "center" ]} {[ set alignment "center" /]}
+     {[ case "end" ]} {[ set alignment "centerRight" /]}
+    {[/]}
+{[/]}
+
+Stack(
+    {[ if @is.nonNil(alignment) ]}
+     alignment: Alignment.{{alignment}},
+    {[/]}
+    children: [
+ {[for child in n.children]} 
+   {[inject "layout.Walker" context @new.dict().add("node", child).add("parent", node) /]},
+ {[/]} 
+
+    ],
+)

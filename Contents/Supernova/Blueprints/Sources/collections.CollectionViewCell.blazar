@@ -1,0 +1,11 @@
+import 'package:flutter/material.dart';
+
+{[var layout @compute.layout.flexboxForContainerById(componentId) /]}
+
+class {{className}} extends StatelessWidget {
+  
+  @override
+  Widget build(BuildContext context) {
+     return {[inject "layout.Walker" context @new.dict().add("node", layout).add("parent", layout.nonExistent) /]};
+  }
+}

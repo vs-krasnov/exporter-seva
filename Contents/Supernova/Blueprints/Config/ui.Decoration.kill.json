@@ -1,0 +1,10 @@
+{
+  "editorSettings" : {
+
+  },
+  "group" : "UI",
+  "id" : "ui.Decoration.kill",
+  "invocation" : "once",
+  "name" : "Decoration (KILL)",
+  "overview" : ""
+}

@@ -1,0 +1,11 @@
+{
+  "editorSettings" : {
+    "editorComponentId" : "kJJ-Hy-0aZ",
+    "editorScreenId" : "0V1-lK-p7o"
+  },
+  "group" : "Components",
+  "id" : "components.Button",
+  "invocation" : "oncePerScreen",
+  "name" : "Button",
+  "overview" : ""
+}

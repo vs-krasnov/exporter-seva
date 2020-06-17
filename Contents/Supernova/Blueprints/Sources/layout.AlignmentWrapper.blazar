@@ -1,0 +1,8 @@
+{[ if alignment.apply ]}
+Align(
+   alignment: Alignment.{{alignment.type}},
+   child: {{#body}},
+)
+{[ else ]}
+{{#body}}
+{[/]}

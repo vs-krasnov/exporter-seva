@@ -1,0 +1,26 @@
+{[var component @project.componentById(componentId) /]}
+{[var children @project.containerByIdChildren(componentId) /]}
+{[var names @compute.support.uniqueNames(@map(children, "name"), "words", " ") /]}
+{[var firstChildName "ChildWidget" /]}
+
+{[for tuple in @compute.support.zipWithIndex(names)]}
+ {[var childName tuple.value.camelcased(true).suffixed("ItemWidget") /]}
+ {[if @is.equals(tuple.key, 0)]} 
+   {[set firstChildName childName /]}
+ {[/]}
+ {[var path @call("collections.CollectionItemEmitPath", @new.dict().add("childName", childName)).output /]}
+ {[emit file path]}
+  {[var childContext @new.dict().add("componentId", children.at(tuple.key).id).add("className", childName) /]}
+  {[inject "collections.TableViewCell" context childContext /]}
+ {[/]}
+{[/]}
+
+{[if component.style.hasSeparator]}
+ListView.separated(
+    separatorBuilder: null, //todo
+{[else]}
+ListView.builder(
+{[/]}
+    itemCount: 15,
+    itemBuilder: (context, index) => {{firstChildName}}(),
+)

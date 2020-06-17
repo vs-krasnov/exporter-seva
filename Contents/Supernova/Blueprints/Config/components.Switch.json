@@ -1,0 +1,11 @@
+{
+  "editorSettings" : {
+    "editorComponentId" : "k0z-wD-tSK",
+    "editorScreenId" : "6P7-0I-0Au"
+  },
+  "group" : "Components",
+  "id" : "components.Switch",
+  "invocation" : "oncePerComponent",
+  "name" : "Switch",
+  "overview" : ""
+}

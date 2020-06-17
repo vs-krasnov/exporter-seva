@@ -1,0 +1,4 @@
+{* param screenId: string *}{* [debug print screenId /] *}
+{[import build_slug from "helpers.ScreenPathSlug" /]}
+{[var slug @call(build_slug, self).output /]}
+{{slug}}/{{slug}}.dart
