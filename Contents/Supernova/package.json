@@ -2,7 +2,7 @@
   "assetIds" : [
 
   ],
-  "github" : "https://github.com/Supernova-Studio/supernova-exporter-flutter"
+  "github" : "https://github.com/Supernova-Studio/supernova-exporter-flutter",
   "author" : "Ivan Terpugov",
   "blueprintIds" : [
     "components.Button",
