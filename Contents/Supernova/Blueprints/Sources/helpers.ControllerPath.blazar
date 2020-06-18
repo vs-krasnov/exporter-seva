@@ -1,0 +1,3 @@
+{* param screenId: string or groupId: string *}
+{[ var slug @call("helpers.ControllerPathSlug", self).output /]}
+{{ slug }}/{{ slug }}.dart

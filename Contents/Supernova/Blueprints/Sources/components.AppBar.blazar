@@ -1,0 +1,45 @@
+{[ var navBar @project.navbarForScreenId(screenId) /]}
+{[ if @is.nil(navBar) ]}
+{[ set navBar @new.dict("items", @new.array()).add("title", @new.dict()) /]}
+{[/]}
+{[ let hasItems @is.gt(navBar.items.count(), 0) /]}
+
+{[ let hasTitleText @is.nonNil(navBar.title.text) /]}
+{[ let hasTitleImage @is.nonNil(navBar.title.imageId) /]}
+
+{[ let render @or(hasTitleText, hasTitleImage, hasItems) /]}
+{[ if render ]}
+AppBar(
+  {[ if hasTitleImage ]}
+    {[ let asset @project.assetById(navBar.title.imageId) /]}
+    title: Image.asset(
+      "assets/images/{{ asset.name }}.png", 
+    ),
+  {[ elseif hasTitleText ]}
+    {[ let text navBar.title.text /]}
+    title: Text(
+      "{{ text.string.slashNewlines().slashDoubleQuotes() }}",
+       textAlign: {[ inject "ui.TextAlign" context @new.dict("alignment", "center") /]},
+       style: {[inject "ui.TextStyle" context text /]},
+    ),
+
+  {[/]}
+
+  {[ if hasItems ]}
+   {[ var items navBar.items /]}
+   {[ if @is.equals(items.first().position, "left") ]}
+    leading: {[inject "components.AppBarItem" context items.first() /]},
+    {[ set items items.from(1) /]}
+   {[/]}
+   {[ if @is.gt(items.count(), 0) ]}
+   actions: [
+   {[ for item in items ]}
+     {[ inject "components.AppBarItem" context item /]}
+   {[/]}
+   ]
+   {[/]}
+  {[/]}
+)
+{[/]}
+
+{[ return @new.dict("render", render) /]}

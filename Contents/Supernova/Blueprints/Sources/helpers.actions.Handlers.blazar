@@ -5,24 +5,34 @@
 
 {[ for comp in components ]}
 {* button *}
-{[ if @is.equals(comp.type, "button")]}
+{[ if @or(@is.equals(comp.type, "navigationBarItem"), @is.equals(comp.type, "button"))]}
   {[ var component @project.componentById(comp.id) /]}
   void {{ component.naming.action }}(BuildContext context){
-    {[ var connection @project.connectionByComponentId(comp.id) /]}
-    {[ if @is.nonNil(connection) ]}
-      {[ var target @project.screenById(connection.destinationScreenId) /]}  
-      {[ if @is.nil(target) ]}
-        {[ var tabgroup @project.tabGroupById(connection.destinationScreenId) /]}
-        {[ if @and(@is.nonNil(tabgroup), @is.gt(tabgroup.screens.count(), 0)) ]}
-          {[ set target @project.screenById(tabgroup.screens.first()) /]} 
+    {[ switch component.properties.actionType ]}
+      {[ case "navigateBack" ]}
+      Navigator.pop(context);
+
+      {[ case "navigationToScreen" ]}
+      {[ var connection @project.connectionByComponentId(comp.id) /]}
+      {[ if @is.nonNil(connection) ]}
+        {[ var target @project.screenById(connection.destinationScreenId) /]}  
+        {[ var import nil /]}
+        {[ if @is.nonNil(target) ]}
+          {[ set import @new.dict("type", "screen").add("screenId", target.id) /]}
+        {[ else ]}
+          {[ var tabgroup @project.tabGroupById(connection.destinationScreenId) /]}
+          {[ if @and(@is.nonNil(tabgroup), @is.gt(tabgroup.screens.count(), 0)) ]}
+            {[ set target tabgroup /]}
+            {[ set import @new.dict("type", "tabGroup").add("groupId", target.id) /]} 
+          {[/]}
         {[/]}
-      {[/]}
-      {[ if @is.nonNil(target) ]}
-       {[ set imports imports.append(@new.dict("type", "screen").add("screenId", target.id)) /]}
-       {[ var widgetName @call("helpers.WidgetName", target).output /]}
-       Navigator.push(context, MaterialPageRoute(builder: (context) => {{widgetName}}()));
-      {[/]}
-    {[/]}
+        {[ if @is.nonNil(target) ]}
+         {[ set imports imports.append(import) /]}
+         {[ var widgetName @call("helpers.WidgetName", target).output /]}
+         Navigator.push(context, MaterialPageRoute(builder: (context) => {{widgetName}}()));
+        {[/]}
+      {[/]} {* if is.nonNil *}
+    {[/]} {* switch *}
   }
 {[/]}
 {* switch *}
@@ -31,7 +41,6 @@
   void {{ component.naming.action }}(BuildContext context, bool isOn){  
   }
 {[/]}
-
 {[/]}
 
 {[ return @new.dict().add("imports", imports) /]}

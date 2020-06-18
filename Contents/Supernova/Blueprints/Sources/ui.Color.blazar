@@ -1,6 +1,3 @@
 Color.fromARGB(
-  {{alpha.multipliedBy(255).rounded(0)}},
-  {{red.multipliedBy(255).rounded(0)}},
-  {{green.multipliedBy(255).rounded(0)}},
-  {{blue.multipliedBy(255).rounded(0)}}
+  {{alpha.multipliedBy(255).rounded(0)}}, {{red.multipliedBy(255).rounded(0)}}, {{green.multipliedBy(255).rounded(0)}}, {{blue.multipliedBy(255).rounded(0)}}
 )

@@ -1,5 +1,5 @@
 
-{[ var tabGroup @project.tabGroupById(screenId) /]}
+{[ var tabGroup @project.tabGroupById(groupId) /]}
 {[ var firstScreenId tabGroup.screens.first() /]}
 {[ var tabBar @project.tabbarForScreenId(firstScreenId) /]}
 {[var widgetName @call("helpers.WidgetName", tabGroup).output /]}
@@ -7,7 +7,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 {[for tabScreenId in tabGroup.screens]}
-import '{[inject "helpers.ImportRoot" context self /]}{[inject "helpers.ScreenPath" context @new.dict("screenId", tabScreenId) /]}';
+import '{[inject "helpers.ImportRoot" context self /]}{[inject "helpers.ControllerPath" context @new.dict("screenId", tabScreenId) /]}';
 {[/]}
 
 class {{ widgetName }} extends StatefulWidget {
@@ -21,7 +21,7 @@ class _{{ widgetName }}State extends State<{{ widgetName }}> {
   List<Widget> _tabWidgets = [
     {[for tabScreenId in tabGroup.screens ]}
       {[var screen @project.screenById(tabScreenId) /]}
-      {{@call("fl.helper.WidgetName", screen).output}}(),
+      {{@call("helpers.WidgetName", screen).output}}(),
     {[/]}
   ];
   int _currentIndex = 0;
@@ -39,20 +39,17 @@ class _{{ widgetName }}State extends State<{{ widgetName }}> {
         onTap: (index) => this._onTabChanged(index),
         items: [
          {[ for item in tabBar.items ]}
+          {[ var asset @project.assetById(item.imageId) /]}
           BottomNavigationBarItem(
            icon: Image.asset(
-              "assets/images/active-icon-6.png",
+              "assets/images/{{asset.name}}.png",
               width: 48,
               height: 48,
-            ),
+            ), 
             title: Text(
-              "{{item.title}}",
-              textAlign: TextAlign.left,
-              style: TextStyle(
-                color: Color.fromARGB(255, 0, 0, 0),
-                fontWeight: FontWeight.w400,
-                fontSize: 12,
-              ),
+              "{{item.title.text}}",
+              textAlign: TextAlign.{{item.title.style.alignment}},
+              style: {[inject "ui.TextStyle" context item.title.style/]},
             ),
           ),
          {[/]}

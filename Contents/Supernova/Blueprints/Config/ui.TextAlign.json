@@ -2,9 +2,9 @@
   "editorSettings" : {
 
   },
-  "group" : "Primary",
-  "id" : "primary.Tabbar",
+  "group" : "UI",
+  "id" : "ui.TextAlign",
   "invocation" : "once",
-  "name" : "Tab bar",
+  "name" : "TextAlignment",
   "overview" : ""
 }

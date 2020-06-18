@@ -1,0 +1,2 @@
+{[debug print @new.dict("message", "TabGroup Test Template").add("context", self) /]}
+TabGroup Test. Context = {{ self.toJSON() }}

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-{[ global EMIT_PATH @call("helpers.ScreenPathSlug", self).output.suffixed("/").prefixed("lib/") /]} 
-{[ let localImportPath @call("helpers.ScreenPathSlug", self).output.suffixed("/") /]}
+{[ global EMIT_PATH @call("helpers.ControllerPathSlug", self).output.suffixed("/").prefixed("lib/") /]} 
+{[ let localImportPath @call("helpers.ControllerPathSlug", self).output.suffixed("/") /]}
 
 {* handlers for buttons, switches, etc *}
 {[ var actions @call("helpers.actions.Handlers", self) /]}

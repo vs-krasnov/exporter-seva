@@ -21,8 +21,8 @@ This package represents one exporter. Each exporter is defined by exactly one co
 and N code blueprint files, with asset folder being optional. Package structure is as follows:
 
 /root
-   /package.json
-   /package.png (optional)
+   /exporter.json
+   /icon.png (optional)
    /blueprints
        uuid1.json
        uuid2.json

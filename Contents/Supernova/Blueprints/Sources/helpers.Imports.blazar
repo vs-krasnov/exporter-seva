@@ -7,11 +7,16 @@
   import 'package:{{ import.package }}';
  {[/]}
 {[/]}
+{* tabgroups *}
+{[ for import in imports ]}
+ {[ if @is.equals(import.type, "tabGroup") ]}
+  import '{[inject "helpers.ImportRoot" context empty /]}{[ inject "helpers.ControllerPath" context import /]}';
+ {[/]}
+{[/]}
 {* screens next *}
 {[ for import in imports ]}
  {[ if @is.equals(import.type, "screen") ]}
-  {[ var screen @project.screenById(import.screenId) /]}
-  import '{[inject "helpers.ImportRoot" context empty /]}{[ inject "helpers.ScreenPath" context import /]}';
+  import '{[inject "helpers.ImportRoot" context empty /]}{[ inject "helpers.ControllerPath" context import /]}';
  {[/]}
 {[/]}
 {* local (in same dir) files last *}

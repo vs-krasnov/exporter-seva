@@ -3,8 +3,8 @@
 
   },
   "group" : "helpers",
-  "id" : "helpers.ScreenPathSlug",
+  "id" : "helpers.ControllerPath",
   "invocation" : "oncePerScreen",
-  "name" : "Screen Path Slug",
+  "name" : "Controller Path ",
   "overview" : ""
 }

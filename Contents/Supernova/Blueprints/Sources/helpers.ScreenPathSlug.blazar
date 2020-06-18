@@ -1,2 +1,0 @@
-{* param screenId: string *}
-{[var screen @project.screenById(screenId) /]}{{screen.name.snakecased().lowercased().suffixed("_widget")}}

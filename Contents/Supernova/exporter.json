@@ -2,7 +2,6 @@
   "assetIds" : [
 
   ],
-  "github" : "https://github.com/Supernova-Studio/supernova-exporter-flutter",
   "author" : "Ivan Terpugov",
   "blueprintIds" : [
     "components.Button",
@@ -11,10 +10,9 @@
     "components.ButtonContent",
     "components.ButtonAttributes",
     "helpers.WidgetName",
-    "helpers.ScreenPathSlug",
     "helpers.ImportRoot",
     "primary.MainDart",
-    "helpers.ScreenPath",
+    "helpers.ControllerPath",
     "components.MapView",
     "components.Switch",
     "layout.AlignmentFn",
@@ -48,13 +46,18 @@
     "ui.Shadow",
     "ui.TextStyle",
     "ui.WidthHeight",
-    "primary.Tabbar",
     "primary.Screen",
     "collections.CollectionItemsImportFn",
     "primary.Pubspec.yaml",
     "helpers.Imports",
     "helpers.actions.Imports.kill",
-    "helpers.ListImportedPackages"
+    "helpers.ListImportedPackages",
+    "primary.TabGroupTest",
+    "primary.Tabgroup",
+    "helpers.ControllerPathSlug",
+    "components.AppBar",
+    "ui.TextAlign",
+    "components.AppBarItem"
   ],
   "contactEmail" : "ivan@supernova.io",
   "id" : "1181EBAB-3AE3-4F29-A785-5C2A327EE426",
@@ -86,11 +89,19 @@
       "id" : "MVXXVKjrU",
       "name" : "Screens generator",
       "overview" : "Writes screens",
-      "rule" : "lib\/{[inject \"helpers.ScreenPath\" context self \/]}",
+      "rule" : "lib\/{[inject \"helpers.ControllerPath\" context self \/]}",
+      "type" : "blueprint"
+    },
+    {
+      "blueprintId" : "primary.Tabgroup",
+      "id" : "0Y5n4B5Ub",
+      "name" : "Tab Groups generator",
+      "overview" : "Writes Tab Groups",
+      "rule" : "lib\/{[inject \"helpers.ControllerPath\" context self \/]}\n",
       "type" : "blueprint"
     }
   ],
   "name" : "Flutter Exporter",
   "overview" : "WIP Flutter exporter",
-  "version" : "0.2"
+  "version" : "0.1.5"
 }

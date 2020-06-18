@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 {[var home @project.allScreens().first() /]}
-import '{[inject "helpers.ImportRoot" context @new.dict()/]}{[inject "helpers.ScreenPath" context @new.dict().add("screenId", home.id)/]}';
+import '{[inject "helpers.ImportRoot" context @new.dict()/]}{[inject "helpers.ControllerPath" context @new.dict().add("screenId", home.id)/]}';
 
 void main() => runApp(App());
 
