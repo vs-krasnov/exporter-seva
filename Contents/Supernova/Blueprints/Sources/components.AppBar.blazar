@@ -10,6 +10,10 @@
 {[ let render @or(hasTitleText, hasTitleImage, hasItems) /]}
 {[ if render ]}
 AppBar(
+  backgroundColor: {[ inject "ui.Color" context navBar.style.background.value /]},
+  {[ if @is.equals(navBar.style.background.value.alpha, 0) ]}
+  elevation: 0, 
+  {[/]}
   {[ if hasTitleImage ]}
     {[ let asset @project.assetById(navBar.title.imageId) /]}
     title: Image.asset(

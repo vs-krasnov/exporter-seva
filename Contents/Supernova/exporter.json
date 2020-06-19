@@ -2,7 +2,7 @@
   "assetIds" : [
 
   ],
-  "author" : "Ivan Terpugov",
+  "author" : "Supernova",
   "blueprintIds" : [
     "components.Button",
     "components.Image",
@@ -59,7 +59,9 @@
     "ui.TextAlign",
     "components.AppBarItem"
   ],
-  "contactEmail" : "ivan@supernova.io",
+  "contactEmail" : "",
+  "github" : "https:\/\/github.com\/Supernova-Studio\/supernova-exporter-flutter",
+  "homepage" : "https:\/\/supernova.io",
   "id" : "1181EBAB-3AE3-4F29-A785-5C2A327EE426",
   "input" : "sn.project",
   "interface" : {
@@ -101,7 +103,8 @@
       "type" : "blueprint"
     }
   ],
+  "menuItem" : "Flutter Exporter",
   "name" : "Flutter Exporter",
-  "overview" : "WIP Flutter exporter",
-  "version" : "0.1.5"
+  "overview" : "Flutter exporter supporting all the latest and greatest in the Flutter world. Proudly created and maintained by Supernova.",
+  "version" : "0.1.6"
 }
