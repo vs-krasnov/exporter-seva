@@ -1,0 +1,10 @@
+{
+  "editorSettings" : {
+    "editorComponentId" : "0iR-Me-K6I"
+  },
+  "group" : "Animation",
+  "id" : "animation.ComponentWrapper",
+  "invocation" : "oncePerComponent",
+  "name" : "Component Wrapper",
+  "overview" : ""
+}

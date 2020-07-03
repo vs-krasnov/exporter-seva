@@ -1,54 +1,47 @@
 {* param component: Component (may be null for abstract layout nodes) *}
 {[ var c self.component /]}
-
+{[ var animation nil /]}
 {[ if @is.nil(c) ]} 
   {[ if @is.nonNil(self.componentId) ]}
     {* this branch allows standalone execution in editor *}
     {[ set c @project.componentById(componentId) /]}
+    {[ set animation @project.animationByComponentId(componentId) /]}
   {[ else ]}
     {* fallback to case of null component *}
     {[ set c @new.dict() /]}
   {[/]}
-
 {[/]}
 
 {[if @is.nonNil(c.style) ]}
- {[var s c.style /]} {* TODO: move following hasXX/apply flags to function to be reused in button *}
- {[ var hasBackground @and(@is.nonNil(s.backgroundColor), @is.gt(s.backgroundColor.alpha, 0)) /]}
- {[ var hasGradient @is.nonNil(s.backgroundGradient) /]}
- {[ var hasShadow @and(@is.nonNil(s.shadow),  @is.gt(s.shadow.color.alpha, 0)) /]}
- {[ var hasBorder @and(@is.nonNil(s.border),  @is.gt(s.border.color.alpha, 0)) /]}
- {[ var hasRadius @is.gt(s.cornerRadius, 0) /]}
- {[ var applyDecoration @or(hasBackground, hasGradient, hasShadow, hasBorder, hasRadius) /]}
+ {[ let decorationContext @new.dict("style", c.style).add("animation", animation) /]}
+ {[ let background @call("ui.decoration.BackgroundColor", decorationContext) /]}
+ {[ let gradient @call("ui.decoration.BackgroundGradient", decorationContext) /]}
+ {[ let border @call("ui.decoration.Border", decorationContext) /]}
+ {[ let shadow @call("ui.decoration.Shadow", decorationContext) /]}
+ {[ let radius @call("ui.decoration.CornerRadius", decorationContext) /]}
 
-
- {* THIS CODE MUST BE MOVED TO WRAPPERS: 
-  button consumes decoration itself:  *}
- {* [ var applyDecoration @and(@not(@is.equals(c.type, "button")), hasDecoration) /] *}
+ {[ var applyDecoration @or(background.apply, gradient.apply, shadow.apply, border.apply, radius.apply) /]}
  
- {[if applyDecoration ]}
+ {[ if applyDecoration ]}
 BoxDecoration(
   {* //todo: imageDecoration *}
-  {[if hasGradient]}
-    gradient: {[inject "ui.Gradient" context s.backgroundGradient /]},
-  {[else if hasBackground ]}
-    color: {[inject "ui.Color" context s.backgroundColor /]},
+  {[ if gradient.apply  ]}
+    gradient: {{ gradient.output }},
+  {[ elseif background.apply ]}
+    color: {{ background.output }},
   {[/]}
-  {[if hasBorder ]} 
-    border: Border.all(
-      color: {[inject "ui.Color" context s.border.color /]},
-      width: {{s.border.width}},
-    ),
+  {[if border.apply ]} 
+    border: {{ border.output }},
   {[/]}
-  {[if hasRadius]}
-    borderRadius: BorderRadius.all(Radius.circular({{ s.cornerRadius }})),
+  {[if radius.apply]}
+    borderRadius: {{ radius.output }},
   {[/]}
-  {[if hasShadow]} 
-    boxShadow: [ {[inject "ui.Shadow" context c.style.shadow /]}, ],
+  {[if shadow.apply]} 
+    boxShadow: [ {{ shadow.output }} ],
    {[/]}
 )
  {[/]}
- {[return @new.dict("apply", applyDecoration) /]}
-{[else]}
- {[return @new.dict("apply", false) /]}
+ {[ return @new.dict("apply", applyDecoration) /]}
+{[ else ]}
+ {[ return @new.dict("apply", false) /]}
 {[/]}

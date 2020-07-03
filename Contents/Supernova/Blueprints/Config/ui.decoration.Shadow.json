@@ -1,11 +1,11 @@
 {
   "editorSettings" : {
-    "editorComponentId" : "shV-g4-LNE",
+    "editorComponentId" : "51e-Ox-Y3C",
     "editorScreenId" : "0V1-lK-p7o"
   },
   "group" : "UI",
-  "id" : "ui.DecorationFn",
+  "id" : "ui.decoration.Shadow",
   "invocation" : "oncePerComponent",
-  "name" : "Decoration Function",
+  "name" : "Decoration \/ Shadow",
   "overview" : ""
 }

@@ -1,0 +1,17 @@
+{[ let s @iif(@is.nil(style), @new.dict(), style) /]}
+{[ let colorProp @call("animation.FindProperty", @new.dict("element", animation).add("prop", "border.color")).property /]}
+{[ var apply false /]}
+
+{[ if @is.nil(colorProp) ]}
+ {* simple case *}
+ {[ set apply @and(@is.nonNil(s.border), @is.gt(s.border.color.alpha, 0)) /]}
+ {[ if apply ]}
+   {[ inject "ui.Color" context s.border.color /]}
+ {[/]}
+{[ else ]}
+  {* animated case *}
+  {[ set apply true /]}
+  state.borderColor
+{[/]}
+
+{[ return @new.dict("apply", apply) /]}

@@ -1,0 +1,10 @@
+{
+  "editorSettings" : {
+
+  },
+  "group" : "Animation",
+  "id" : "animation.helpers.InitState",
+  "invocation" : "once",
+  "name" : "Animation State Init Helper ",
+  "overview" : ""
+}

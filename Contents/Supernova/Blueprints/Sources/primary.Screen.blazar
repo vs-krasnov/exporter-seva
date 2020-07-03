@@ -10,36 +10,48 @@ import 'package:flutter/material.dart';
 {[ set imports imports.concat(@call("collections.CollectionItemsImportFn", self).imports) /]}
 {* import of external packages *}
 {[ set imports imports.concat(@call("helpers.ListImportedPackages", self).imports) /]}
+{* prepare animations and their imports *}
+{[ let animations @call("animation.ScreenAnimations", self) /]}
+{[ set imports imports.concat(animations.imports) /]}
 
 {[ inject "helpers.Imports" context @new.dict("imports", imports).add("localImportPath", localImportPath) /]}
 
 
-{[ var screen @project.screenById(screenId) /]}
+{[ let screen @project.screenById(screenId) /]}
+
+{[ global COMPONENT_ANIMATIONS animations.animatedComponents /]} 
+{[ let hasAnimations @is.gt(animations.animatedComponents.count(), 0) /]}
  
-{*
-{[if screen.animations.count()]}
-  {[for anim in data.animations]}
-     {[for element in anim.elements]}
-       {[var elementId element.componentId.camelcased(true) /]}
-       {[var animClassNameBase screen.codeClassName.suffixed("WidgetAnimation") /]}
-       {[var animClassName elementId.camelcased(false).prefixed(animClassNameBase) /]}
-
-       {[var filename animClassName.suffixed("-x.dart") /]}
-       {[emit file filename ]}
-       {[inject "fl.code.animation" context element.add("className", animClassName) /]}
-       {[/]}
-     {[/]}
-  {[/]}
-{[/]}
- *}
-
 {[ var widgetName @call("helpers.WidgetName", screen).output /]}
 class {{ widgetName }} extends StatefulWidget {
   createState() => _{{ widgetName }}State();
 }
 
-class _{{ widgetName }}State extends State<{{ widgetName }}>{
+class _{{ widgetName }}State extends State<{{ widgetName }}> {[ if hasAnimations ]}with TickerProviderStateMixin {[/]}{
 {{ actions.output }}
+  {[ if hasAnimations ]}
+  {[ for animation in animations.animatedComponents.values() ]}
+  AnimationController {{animation.controllerName}};
+  {[/]}
+
+  @override
+  void initState() {
+    super.initState();
+    {[ inject "animation.helpers.InitState" context @new.dict("animations", animations) /]}
+    this.startAnimationOne();
+  }
+  @override
+  void dispose() {  
+    super.dispose();
+    {[ inject "animation.helpers.DisposeState" context @new.dict("animations", animations) /]}  
+   }
+
+   void startAnimationOne() {
+     {[ for animation in animations.animatedComponents.values() ]}
+     this.{{animation.controllerName}}.forward();
+     {[/]}
+   }
+  {[/]}
 
   @override
   Widget build(BuildContext context) {

@@ -1,0 +1,39 @@
+{[ let s @iif(@is.nil(style), @new.dict(), style) /]}
+{[ let colorProp @call("animation.FindProperty", @new.dict("element", animation).add("prop", "shadow.color")).property /]}
+{[ let offsetProp @call("animation.FindProperty", @new.dict("element", animation).add("prop", "shadow.color")).property /]}
+{[ let radiusProp @call("animation.FindProperty", @new.dict("element", animation).add("prop", "shadow.radius")).property /]}
+
+{[ let animatedShadow @or(@is.nonNil(colorProp), @is.nonNil(offsetProp), @is.nonNil(radiusProp)) /]}
+{[ let staticShadow @and(@is.nonNil(s.shadow),  @is.gt(s.shadow.color.alpha, 0)) /]}
+{[ let apply @or(animatedShadow, staticShadow) /]}
+
+{[ if apply ]}
+BoxShadow(
+ color: 
+ {[ if @is.nonNil(colorProp) ]}
+   state.shadowColor
+ {[ elseif @is.nonNil(s.shadow) ]}
+   {[ inject "ui.Color" context s.shadow.color /]}
+ {[ else ]}
+   Colors.transparent
+ {[/]},
+ offset:
+  {[ if @is.nonNil(offsetProp) ]}
+    state.shadowOffset
+  {[ elseif @is.nonNil(s.shadow) ]}
+    Offset({{ s.shadow.offset.x }}, {{ s.shadow.offset.y }})
+  {[ else ]}
+    Offset(0, 0)
+  {[/]},
+  blurRadius: 
+  {[ if @is.nonNil(radiusProp) ]}
+    state.shadowRadius
+  {[ elseif @is.nonNil(s.shadow) ]}
+    {{ s.shadow.radius }}
+  {[ else ]}
+    0
+  {[/]},
+),
+{[/]}
+
+{[ return @new.dict("apply", apply) /]}

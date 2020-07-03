@@ -1,0 +1,23 @@
+{[ var list nil /]}
+{[ var body nil /]}
+{[ if @is.nonNil(injections) ]}
+{[   set body #body /]}
+{[   set list injections /]}
+{[ else ]}
+{[   let x1 @new.dict("id", "helpers.Test").add("context", @new.dict("param", "One")) /]}
+{[   let x2 @new.dict("id", "helpers.Test").add("context", @new.dict("param", "TWO")) /]}
+{[   let x3 @new.dict("id", "helpers.Test").add("context", @new.dict("param", "Three")) /]}
+{[   set list @new.array().append(x1).append(x2).append(x3) /]}
+{[   set body "BODY" /]}
+{[/]}
+{[ if @is.gt(list.count(), 0) ]}
+{[   let head list.at(0) /]}
+{[   let tail list.from(1) /]}
+{[   inject head.id context head.context ]}
+{[     inject "helpers.RecursiveInject" context @new.dict("injections", tail) ]}
+{{       body }}
+{[/]}
+{[/]}
+{[ else ]}
+{{   body }}
+{[/]}

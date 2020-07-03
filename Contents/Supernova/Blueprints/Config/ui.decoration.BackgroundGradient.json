@@ -3,8 +3,8 @@
 
   },
   "group" : "UI",
-  "id" : "ui.Decoration.kill",
+  "id" : "ui.decoration.BackgroundGradient",
   "invocation" : "once",
-  "name" : "Decoration (KILL)",
+  "name" : "Decoration \/ Background Gradient",
   "overview" : ""
 }

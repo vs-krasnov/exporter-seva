@@ -1,0 +1,13 @@
+{[ let s @iif(@is.nil(style), @new.dict(), style) /]}
+{[ let prop @call("animation.FindProperty", @new.dict("element", animation).add("prop", "corner.radius")).property /]}
+{[ var apply false /]}
+{[ if @is.nil(prop) ]}
+ {[ set apply @is.gt(s.cornerRadius, 0) /]}
+  {[ if apply ]}
+    BorderRadius.all(Radius.circular({{ s.cornerRadius }}))
+  {[/]}
+{[ else ]}
+  {[ set apply true /]}
+  BorderRadius.all(Radius.circular(state.cornerRadius))
+{[/]}
+{[ return @new.dict("apply", apply) /]}

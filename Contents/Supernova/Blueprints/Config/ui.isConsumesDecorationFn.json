@@ -1,0 +1,10 @@
+{
+  "editorSettings" : {
+
+  },
+  "group" : "UI",
+  "id" : "ui.isConsumesDecorationFn",
+  "invocation" : "once",
+  "name" : "Is Consumes Decoration Function",
+  "overview" : "Param self: Component. Returns {\"consumesDecoration\": bool} indicating if this component will manage decoration itself"
+}

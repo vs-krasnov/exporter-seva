@@ -1,0 +1,7 @@
+{[ let s @iif(@is.nil(style), @new.dict(), style) /]}
+{* background gradient is not animatable -> don't try to lookup animated property *}
+{[ let apply @is.nonNil(s.backgroundGradient) /]} 
+{[ if apply ]}
+  {[ inject "ui.Gradient" context s.backgroundGradient /]}
+{[/]}
+{[ return @new.dict("apply", apply) /]}

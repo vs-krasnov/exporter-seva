@@ -1,29 +1,37 @@
-{[var component @project.componentById(componentId) /]}
+{[ let component @project.componentById(componentId) /]}
 
 onPressed: () => this.{{component.naming.action}}(context),
-{[var style component.style /]}
-{[if @is.nonNil(style.backgroundColor)]}
-color: {[inject "ui.Color" context style.backgroundColor /]},
+{[ let style component.style /]}
+{[ let animation @project.animationByComponentId(componentId) /]}
+{[ let decorationContext @new.dict("style", style).add("animation", animation) /]}
+{[ let background @call("ui.decoration.BackgroundColor", decorationContext) /]}
+{[ let borderWidth @call("ui.decoration.BorderWidth", decorationContext) /]}
+{[ let borderColor @call("ui.decoration.BorderColor", decorationContext) /]}
+{[ let border @new.dict("apply", @and(borderWidth.apply, borderColor.apply)) /]}
+{[ let radius @call("ui.decoration.CornerRadius", decorationContext) /]}
+{[ let fix 1 /]}
+{[ if background.apply ]}
+color: {{ background.output }},
 {[/]}
 
-{[if @is.nonNil(style.text.color)]}
-textColor: {[inject "ui.Color" context style.text.color /]},
+{[ if @is.nonNil(style.text.color) ]}
+textColor: {[ inject "ui.Color" context style.text.color /]},
 {[/]}
 
-{[if @or(@is.nonNil(style.border), @is.gt(style.cornerRadius, 0)) ]}
+{[if @or(border.apply, radius.apply) ]}
 shape: RoundedRectangleBorder(
- {[if @is.nonNil(style.border)]}
+ {[ if border.apply ]}
    side: BorderSide(
-      color: {[inject "ui.Color" context style.border.color /]},
-      width: {{style.border.width}},
+      color: {{ borderColor.output }},
+      width: {{ borderWidth.output }},
       style: BorderStyle.solid,
    ),
  {[/]}
- {[if @is.gt(style.cornerRadius, 0)]}
-   borderRadius: BorderRadius.all(Radius.circular({{style.cornerRadius}})),
+ {[if radius.apply ]}
+   borderRadius: {{ radius.output }},
  {[/]}
 ),
 {[/]}
 
-padding: {[inject "ui.Insets" context style.padding/]},
-child: {[inject "components.ButtonContent" context self /]},
+padding: {[ inject "ui.Insets" context style.padding /]},
+child: {[ inject "components.ButtonContent" context self /]},

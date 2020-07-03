@@ -3,8 +3,8 @@
 
   },
   "group" : "Layout",
-  "id" : "layout.Insets.kill",
+  "id" : "layout.Container",
   "invocation" : "once",
-  "name" : "Insets (KILL)",
+  "name" : "Container Widget",
   "overview" : ""
 }

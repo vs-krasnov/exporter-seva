@@ -1,0 +1,11 @@
+{
+  "editorSettings" : {
+    "editorComponentId" : "kJJ-Hy-0aZ",
+    "editorScreenId" : "0V1-lK-p7o"
+  },
+  "group" : "Animation",
+  "id" : "animation.ComponentAnimationFn",
+  "invocation" : "oncePerComponent",
+  "name" : "Component Animation Function",
+  "overview" : "param componentId: string"
+}

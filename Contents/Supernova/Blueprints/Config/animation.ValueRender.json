@@ -1,0 +1,10 @@
+{
+  "editorSettings" : {
+
+  },
+  "group" : "Animation",
+  "id" : "animation.ValueRender",
+  "invocation" : "oncePerScreen",
+  "name" : "Animation Value Render",
+  "overview" : ""
+}

@@ -1,0 +1,10 @@
+{
+  "editorSettings" : {
+
+  },
+  "group" : "Animation",
+  "id" : "animation.helpers.DisposeState",
+  "invocation" : "once",
+  "name" : "Animation State Dispose Helper",
+  "overview" : ""
+}

@@ -17,7 +17,7 @@
  {[ case "component" ]}
    {[ inject wrapperType context @new.dict("node", n).add("parent", p)]}
      {[ inject "components.Dispatcher" context n /]}
-    {[/]}
+  {[/]}
   {[ case "spacer" ]}
     Spacer() 
 

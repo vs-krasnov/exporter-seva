@@ -1,11 +1,11 @@
 {
   "editorSettings" : {
-    "editorComponentId" : "shV-g4-LNE",
+    "editorComponentId" : "0iR-Me-K6I",
     "editorScreenId" : "0V1-lK-p7o"
   },
   "group" : "UI",
-  "id" : "ui.DecorationFn",
+  "id" : "ui.decoration.BackgroundColor",
   "invocation" : "oncePerComponent",
-  "name" : "Decoration Function",
+  "name" : "Decoration \/ Background Color",
   "overview" : ""
 }

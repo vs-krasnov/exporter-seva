@@ -2,9 +2,9 @@
   "editorSettings" : {
     "editorScreenId" : "0V1-lK-p7o"
   },
-  "group" : "Primary",
-  "id" : "primary.Screen",
+  "group" : "Animation",
+  "id" : "animation.ScreenAnimations",
   "invocation" : "oncePerScreen",
-  "name" : "Screen",
+  "name" : "Screen Animations",
   "overview" : ""
 }

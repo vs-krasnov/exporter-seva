@@ -4,7 +4,7 @@
   },
   "group" : "Collections",
   "id" : "collections.CollectionItemEmitPath",
-  "invocation" : "once",
+  "invocation" : "oncePerComponent",
   "name" : "Collection Item Emit Path",
   "overview" : ""
 }

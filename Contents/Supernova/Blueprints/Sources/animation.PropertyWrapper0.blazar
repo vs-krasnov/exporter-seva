@@ -1,0 +1,112 @@
+{* param element: AnimationElement *}
+{* param type: string - wrapper type *}
+{[ var body #body /]}
+{*[ let element @project.animationByComponentId(componentId) /]}
+{[ let type "rotateZ" /]}
+{[ if @is.nil(body) ]}
+  {[ set body "### BODY" /]}
+{[/]*}
+{[ let ctx @new.dict("element", element) /]}
+{[ let alignment element.animationAnchor.prefixed("Alignment.") /]}
+
+{[ switch type ]}
+{[ case "scaleXY"]}
+  {[ let sx @call("animation.FindProperty", ctx.add("prop", "scale.x")).property /]}
+
+  {[ let sy @call("animation.FindProperty", ctx.add("prop", "scale.y")).property /]}
+
+  {[ if @or(@is.nonNil(sx), @is.nonNil(sy)) ]}
+    Transform(
+      transform: Matrix4.diagonal3Values( 
+       {{ @iif(@is.nil(sx), "1", "this.scaleX.value") }},
+       {{ @iif(@is.nil(sy), "1", "this.scaleY.value") }},
+       1,
+      ),
+      alignment: {{ alignment }},
+      child: {{ body }},
+    )
+  {[ else ]}
+    {{ body }}
+  {[/]}
+
+{[ case "scale" ]}
+  {[ let s @call("animation.FindProperty", ctx.add("prop", "scale")).property /]}
+
+  {[ if @is.nonNil(s) ]}
+    Transform.scale(
+      scale: this.scale.value,
+      alignment: {{ alignment }},
+      child: {{ body }}, 
+    ),
+  {[ else ]}
+    {{ body }}
+  {[/]}
+
+{[ case "rotateX" ]}
+  {[ let rotateX @call("animation.FindProperty", ctx.add("prop", "rotate.x")).property /]}
+
+  {[ if @is.nonNil(rotateX) ]}
+    Transform(
+      transform: Matrix4.rotationX(this.rotateX.value / 180 * pi),
+      alignment: {{ alignment }},
+      child: {{ body }},
+    )
+  {[ else ]}
+    {{ body }}
+  {[/]}
+
+{[ case "rotateY" ]}
+  {[ let rotateY @call("animation.FindProperty", ctx.add("prop", "rotate.y")).property /]}
+
+  {[ if @is.nonNil(rotateY) ]}
+    Transform(
+      transform: Matrix4.rotationY(this.rotateY.value / 180 * pi),
+      alignment: {{ alignment }},
+      child: {{ body }},
+    )
+  {[ else ]}
+    {{ body }}
+  {[/]}
+
+{[ case "rotateZ" ]}
+  {[ let rotateZ @call("animation.FindProperty", ctx.add("prop", "rotate.z")).property /]}
+
+  {[ if @is.nonNil(rotateZ) ]}
+    Transform.rotate(
+      angle: this.rotateZ.value / 180 * pi,
+      alignment: {{ alignment }},
+      child: {{ body }},
+    )
+  {[ else ]}
+    {{ body }}
+  {[/]}
+
+{[ case "translateXY" ]}
+  {[ let tx @call("animation.FindProperty", ctx.add("prop", "translate.x")).property /]}
+
+  {[ let ty @call("animation.FindProperty", ctx.add("prop", "translate.y")).property /]}
+
+  {[ if @or(@is.nonNil(tx), @is.nonNil(ty)) ]}
+    Transform.translate(
+       offset: Offset(
+        {{ @iif(@is.nil(tx), "0", "this.translateX.value") }}, 
+        {{ @iif(@is.nil(ty), "0", "this.translateY.value") }}, 
+       ),
+       child: {{ body }},
+   )
+  {[ else ]}
+    {{ body }}
+  {[/]}
+
+{[ case "opacity" ]}
+  {[ let op @call("animation.FindProperty", ctx.add("prop", "opacity")).property /]}
+
+  {[ if @is.nonNil(op) ]}
+    Opacity(
+      opacity: this.opacity.value,
+      child: {{ body }},
+    )
+  {[ else ]}
+    {{ body }}
+  {[/]}
+{[/]}

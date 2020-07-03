@@ -1,0 +1,17 @@
+{[ let s @iif(@is.nil(style), @new.dict(), style) /]}
+{[ let widthProp @call("animation.FindProperty", @new.dict("element", animation).add("prop", "border.width")).property /]}
+{[ var apply false /]}
+
+{[ if @is.nil(widthProp) ]}
+ {* siple case *}
+ {[ set apply @and(@is.nonNil(s.border), @is.gt(s.border.width, 0)) /]}
+ {[ if apply ]}
+   {{ s.border.width }} 
+ {[/]}
+{[ else ]}
+  {* animated case *}
+  {[ set apply true /]}
+  state.borderWidth
+{[/]}
+
+{[ return @new.dict("apply", apply) /]}

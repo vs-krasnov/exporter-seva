@@ -1,0 +1,19 @@
+{* param self: AnimatedProperty *}
+{[ var p self.animatedProperty /]}
+{[ if @is.nil(p) ]} {* debug branch *}
+  {[ let prop @project.animationsForScreenId(screenId).first().elements.at(0).properties.at(0) /]}
+ {[ set p prop.animatedProperty /]}
+{[/]}
+{[ var res false /]}
+{[ switch p ]}
+{[ case "background.color" ]} {[ set res true /]}
+{[ case "border.color" ]} {[ set res true /]}
+{[ case "border.width" ]} {[ set res true /]}
+{[ case "corner.radius" ]} {[ set res true /]}
+{[ case "shadow.color" ]} {[ set res true /]}
+{[ case "shadow.offset" ]} {[ set res true /]}
+{[ case "shadow.radius" ]} {[ set res true /]}
+{[ case "shadow.opacity" ]} {[ set res true /]}
+{[/]}
+{* { p }} - {{ res.toJSON() } *}
+{[ return @new.dict("stateBased", res) /]}

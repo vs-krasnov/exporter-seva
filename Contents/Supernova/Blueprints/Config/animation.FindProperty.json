@@ -1,0 +1,11 @@
+{
+  "editorSettings" : {
+    "editorComponentId" : "51e-Ox-Y3C",
+    "editorScreenId" : "0V1-lK-p7o"
+  },
+  "group" : "Animation",
+  "id" : "animation.FindProperty",
+  "invocation" : "oncePerComponent",
+  "name" : "Find Animation Property",
+  "overview" : "param element: AnimationElement; param property: String"
+}

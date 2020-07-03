@@ -4,7 +4,7 @@
   },
   "group" : "Layout",
   "id" : "layout.Walker",
-  "invocation" : "once",
+  "invocation" : "oncePerScreen",
   "name" : "Layout Walker",
   "overview" : ""
 }

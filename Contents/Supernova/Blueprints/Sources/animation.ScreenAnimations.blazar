@@ -1,0 +1,46 @@
+{[ let animations @project.animationsForScreenId(screenId) /]}
+{[ let screen @project.screenById(screenId) /]}
+{[ let widgetName @call("helpers.WidgetName", screen).output /]}
+{[ let emitPath @iif(@is.defined(EMIT_PATH), EMIT_PATH, "") /]}
+
+{[ var animatedComponentsResult @new.dict() /]}
+{[ var imports @new.array() /]}
+
+{[ let animationsEnumeration @compute.support.zipWithIndex(animations) /]}
+{[ for anim in animationsEnumeration ]} 
+   {[ let animSuffix anim.key.addedBy(1).toString().prefixed("Animation") /]}
+   {[ let baseName widgetName.suffixed(animSuffix) /]} 
+   {[ let elementsEnumeration @compute.support.zipWithIndex(anim.value.elements) /]}
+   {[ for element in elementsEnumeration ]}
+     {[ var animElementClassName baseName /]}
+     {[ if @is.gt(elementsEnumeration.count(), 1) ]}
+        {[ let elemSuffix element.key.addedBy(1).toString().prefixed("Element") /]}
+        {[ set animElementClassName baseName.suffixed(elemSuffix) /]}
+     {[/]}
+
+     {[ var maxDuration 0 /]}
+     {[ var stateBased false /]} 
+     {[ for prop in element.value.properties ]}
+       {[ let x @call("animation.isStateBased", prop) /]}
+       {[ var fix "1" /]}
+       {[ if x.stateBased ]}
+         {[ set stateBased true /]}
+       {[/]}
+       {[ if @is.gt(prop.duration, maxDuration) ]} {[ set maxDuration prop.duration /]} {[/]}
+     {[/]}
+     {[ let component @project.componentById(element.value.componentId) /]}
+     {[ let componentInfo @new.dict("duration", maxDuration).add("animationClassName", animElementClassName).add("controllerName", component.naming.codeSafeName.suffixed("AnimationController")).add("isStateBased", stateBased) /]} 
+
+     {[ set animatedComponentsResult animatedComponentsResult.add(element.value.componentId, componentInfo) /]}
+     {[ let filename animElementClassName.snakecased().suffixed(".dart") /]}
+     {[ set imports imports.append(@new.dict("type", "local").add("filename", filename)) /]}
+     {[ emit file emitPath.suffixed(filename) ]}
+import 'dart:math';
+import 'package:flutter/widgets.dart';
+import 'package:supernova_flutter_ui_toolkit/keyframes.dart';
+{[ inject "animation.ElementAnimation" context @new.dict("element", element.value).add("className", animElementClassName)./]}
+     {[/]}
+   {[/]}
+{[/]}
+{{ animatedComponentsResult.toJSON() }}
+{[ return @new.dict("animatedComponents", animatedComponentsResult).add("imports", imports) /]}

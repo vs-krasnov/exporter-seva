@@ -3,8 +3,8 @@
 
   },
   "group" : "helpers",
-  "id" : "helpers.actions.Imports.kill",
+  "id" : "helpers.RecursiveInject",
   "invocation" : "once",
-  "name" : "Actions Imports (KILL)",
+  "name" : "Recursive Inject",
   "overview" : ""
 }

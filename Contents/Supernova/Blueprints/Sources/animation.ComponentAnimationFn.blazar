@@ -1,0 +1,14 @@
+{* param componentId: string *}
+{[ var animations @new.dict() /]}
+{[ if @is.defined(COMPONENT_ANIMATIONS) ]} {* expects global const *}
+  {[ set animations COMPONENT_ANIMATIONS /]}
+{[ else ]}
+  {* debug branch *}
+  {[ let anim1 @new.dict("animationClassName", "WelcomeWidgetAnimation1Element1").add("controllerName", "logoAnimationController") /]}
+  {[ let anim4 @new.dict("animationClassName", "WelcomeWidgetAnimation1Element4").add("controllerName", "signUpAnimationController").add("isStateBased", true) /]}
+  {[ set animations @new.dict("5Be-Vz-8Hl", anim1).add("kJJ-Hy-0aZ", anim4) /]}
+{[/]}
+{[ let animation animations.value(componentId) /]}
+{[ let hasAnimation @is.nonNil(animation) /]}
+{[ let isStateBased @iif(hasAnimation, animation.isStateBased, false) /]}
+{[ return @new.dict("animation", animation).add("hasAnimation", hasAnimation).add("isStateBased", isStateBased) /]}

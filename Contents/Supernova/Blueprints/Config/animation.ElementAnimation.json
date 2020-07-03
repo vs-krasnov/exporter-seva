@@ -1,0 +1,10 @@
+{
+  "editorSettings" : {
+
+  },
+  "group" : "Animation",
+  "id" : "animation.ElementAnimation",
+  "invocation" : "oncePerScreen",
+  "name" : "Element Animation",
+  "overview" : ""
+}

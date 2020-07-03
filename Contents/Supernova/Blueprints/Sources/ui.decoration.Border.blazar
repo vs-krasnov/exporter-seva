@@ -1,0 +1,11 @@
+{[ let params @new.dict("style", style).add("animation", animation) /]}
+{[ let color @call("ui.decoration.BorderColor", params) /]} 
+{[ let width @call("ui.decoration.BorderWidth", params) /]} 
+{[ let apply @and(color.apply, width.apply) /]}
+{[ if apply ]}
+  Border.all(
+      color: {{ color.output }},
+      width: {{ width.output }},
+    )
+{[/]}
+{[ return @new.dict("apply", apply) /]}

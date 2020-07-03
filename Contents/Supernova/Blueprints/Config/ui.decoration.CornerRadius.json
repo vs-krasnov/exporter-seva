@@ -1,0 +1,10 @@
+{
+  "editorSettings" : {
+
+  },
+  "group" : "UI",
+  "id" : "ui.decoration.CornerRadius",
+  "invocation" : "once",
+  "name" : "Decoration \/ Corner Radius",
+  "overview" : ""
+}

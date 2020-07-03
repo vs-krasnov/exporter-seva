@@ -1,0 +1,10 @@
+{
+  "editorSettings" : {
+
+  },
+  "group" : "Animation",
+  "id" : "animation.isStateBased",
+  "invocation" : "oncePerScreen",
+  "name" : "Is State Based Animation",
+  "overview" : ""
+}
