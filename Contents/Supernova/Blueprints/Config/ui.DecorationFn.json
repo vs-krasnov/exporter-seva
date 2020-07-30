@@ -7,5 +7,5 @@
   "id" : "ui.DecorationFn",
   "invocation" : "oncePerComponent",
   "name" : "Decoration Function",
-  "overview" : ""
+  "overview" : "Computes and renders BoxDecoration .\nParams: \n  - component: https:\/\/developers.supernova.io\/data-contexts\/data-model-objects\/component\n\nReturns: dict {\n  apply: bool - whether decoration exists and ‘output’ should be used by function caller;\n  output: string - rendered decoration\n}"
 }

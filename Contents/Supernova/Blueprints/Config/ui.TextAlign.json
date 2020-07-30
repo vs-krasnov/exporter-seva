@@ -6,5 +6,5 @@
   "id" : "ui.TextAlign",
   "invocation" : "once",
   "name" : "TextAlignment",
-  "overview" : ""
+  "overview" : "Renders TextAlign value.\nParams:\n - alignment: string"
 }

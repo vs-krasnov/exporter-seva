@@ -6,5 +6,5 @@
   "id" : "collections.CollectionItemsImportFn",
   "invocation" : "oncePerScreen",
   "name" : "Collection Items Import Function",
-  "overview" : ""
+  "overview" : "Generates imports of Collection Items files.\nParams:\n - screenId: string"
 }

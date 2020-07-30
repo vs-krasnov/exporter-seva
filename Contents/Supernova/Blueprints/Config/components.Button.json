@@ -7,5 +7,5 @@
   "id" : "components.Button",
   "invocation" : "oncePerScreen",
   "name" : "Button",
-  "overview" : ""
+  "overview" : "Renders FlatButton widget"
 }

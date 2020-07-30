@@ -4,5 +4,5 @@ Expanded(
    child: {{ #body }},
 )
 {[ else ]}
-{{#body}}
+{{ #body }}
 {[/]}

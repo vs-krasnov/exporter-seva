@@ -6,5 +6,5 @@
   "id" : "collections.TableViewCell",
   "invocation" : "once",
   "name" : "Table View Cell",
-  "overview" : ""
+  "overview" : "Table View Cell widget. Intended to be emitted to separate file.\nParams:\n - componentId: string"
 }

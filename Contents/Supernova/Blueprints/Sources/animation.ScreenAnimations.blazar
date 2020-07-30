@@ -42,5 +42,5 @@ import 'package:supernova_flutter_ui_toolkit/keyframes.dart';
      {[/]}
    {[/]}
 {[/]}
-{{ animatedComponentsResult.toJSON() }}
+{*{ animatedComponentsResult.toJSON() }*}
 {[ return @new.dict("animatedComponents", animatedComponentsResult).add("imports", imports) /]}

@@ -1,6 +1,7 @@
 {[ var prop animatedProperty /]}
 {[ if @is.nil(prop) ]}
-  {[ set prop @project.animationsForScreenId(screenId).first().elements.at(4).properties.at(2) /]}
+  {* debug branch *}
+  {[ set prop @project.animationsForScreenId(screenId).first().elements.at(4).properties.at(0) /]}
 {[/]}
 
 {[ let valueType prop.valueType /]}

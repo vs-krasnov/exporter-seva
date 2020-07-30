@@ -6,5 +6,5 @@
   "id" : "primary.Pubspec.yaml",
   "invocation" : "once",
   "name" : "Pubspec.yaml",
-  "overview" : ""
+  "overview" : "Renders Pubspec.yaml\nParameters: none"
 }

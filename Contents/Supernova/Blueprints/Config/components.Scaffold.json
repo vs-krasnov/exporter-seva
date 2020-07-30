@@ -6,5 +6,5 @@
   "id" : "components.Scaffold",
   "invocation" : "oncePerScreen",
   "name" : "Scaffold",
-  "overview" : ""
+  "overview" : "Scaffold widget. Renders Appbar and components tree\nParams:\n - screenId: string"
 }

@@ -6,5 +6,5 @@
   "id" : "animation.ValueRender",
   "invocation" : "oncePerScreen",
   "name" : "Animation Value Render",
-  "overview" : ""
+  "overview" : "Renders keyframe value (Color, Numeric or Offset). \nParams: \n - valueType: double\/color\/size,\n - value: any"
 }

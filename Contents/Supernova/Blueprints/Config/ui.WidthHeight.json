@@ -6,5 +6,5 @@
   "id" : "ui.WidthHeight",
   "invocation" : "once",
   "name" : "Width Height",
-  "overview" : ""
+  "overview" : "Renders width and height if they are specified in pixels\nParameters:\n - width: dict {type: string, pixels: number}\n-  height: dict {type: string, pixels: number}"
 }

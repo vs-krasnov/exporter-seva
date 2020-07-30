@@ -7,5 +7,5 @@
   "id" : "ui.decoration.BackgroundColor",
   "invocation" : "oncePerComponent",
   "name" : "Decoration \/ Background Color",
-  "overview" : ""
+  "overview" : "Computes and renders background color decoration.\nParams: \n - style: https:\/\/developers.supernova.io\/data-contexts\/data-model-objects\/style\n - animation: https:\/\/developers.supernova.io\/data-contexts\/data-model-objects\/animation-element\n\nReturns: dict {\n  apply: bool - whether background color decoration exists and ‘output’ should be used by function caller;\n  output: string - rendered background color decoration\n}"
 }

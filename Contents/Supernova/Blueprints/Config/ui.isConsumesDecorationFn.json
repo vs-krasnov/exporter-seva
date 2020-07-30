@@ -6,5 +6,5 @@
   "id" : "ui.isConsumesDecorationFn",
   "invocation" : "once",
   "name" : "Is Consumes Decoration Function",
-  "overview" : "Param self: Component. Returns {\"consumesDecoration\": bool} indicating if this component will manage decoration itself"
+  "overview" : "Computes whether the component will manage it’s decoration itself (like Buttons do) instead of rendering in one of layout wrappers.\n\nParams:\n  - self: https:\/\/developers.supernova.io\/data-contexts\/data-model-objects\/component\n\n \nReturns: dict {\n   consumesDecoration: bool \n}\n"
 }

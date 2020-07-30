@@ -65,7 +65,7 @@ class {{clazzName}} extends StatelessWidget {
        {[ let types @new.array().append("scaleXY").append("scale").append("rotateX").append("rotateY").append("rotateZ").append("translateXY").append("opacity") /]}
        {[ var injections @new.array() /]}
        {[ for type in types.reversed() ]}
-         {[ let i @new.dict("id", "animation.PropertyWrapper0").add("context", @new.dict("element", elem).add("type", type)) /]}
+         {[ let i @new.dict("id", "animation.WidgetChildWrapper").add("context", @new.dict("element", elem).add("type", type)) /]}
           {[ set injections injections.append(i) /]}
        {[/]}
 

@@ -6,5 +6,5 @@
   "id" : "ui.decoration.BorderWidth",
   "invocation" : "once",
   "name" : "Decoration \/ Border \/ Width",
-  "overview" : ""
+  "overview" : "Computes and renders border width decoration part.\nParams: \n - style: https:\/\/developers.supernova.io\/data-contexts\/data-model-objects\/style\n - animation: https:\/\/developers.supernova.io\/data-contexts\/data-model-objects\/animation-element\n\nReturns: dict {\n  apply: bool - whether border width decoration exists and ‘output’ should be used by function caller;\n  output: string - rendered border width decoration\n}"
 }

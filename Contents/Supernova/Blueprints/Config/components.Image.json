@@ -7,5 +7,5 @@
   "id" : "components.Image",
   "invocation" : "oncePerComponent",
   "name" : "Image",
-  "overview" : ""
+  "overview" : "Image widget.\nParams: \n - componentId: string"
 }

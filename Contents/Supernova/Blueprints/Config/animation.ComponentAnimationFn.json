@@ -7,5 +7,5 @@
   "id" : "animation.ComponentAnimationFn",
   "invocation" : "oncePerComponent",
   "name" : "Component Animation Function",
-  "overview" : "param componentId: string"
+  "overview" : "Finds animation by component id. Expects COMPONENT_ANIMATIONS globals to be defined.\n\nparams:\n- componentId: string"
 }

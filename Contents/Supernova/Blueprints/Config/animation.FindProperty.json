@@ -7,5 +7,5 @@
   "id" : "animation.FindProperty",
   "invocation" : "oncePerComponent",
   "name" : "Find Animation Property",
-  "overview" : "param element: AnimationElement; param property: String"
+  "overview" : "Find animation property in AnimationElement https:\/\/developers.supernova.io\/data-contexts\/data-model-objects\/animation-element.\nParams: \n - element: AnimationElement; \n - prop: String"
 }

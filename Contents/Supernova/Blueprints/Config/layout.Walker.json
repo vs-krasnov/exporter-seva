@@ -6,5 +6,5 @@
   "id" : "layout.Walker",
   "invocation" : "oncePerScreen",
   "name" : "Layout Walker",
-  "overview" : ""
+  "overview" : "Main entry point for building layout tree. Supports Stacked and Linear layouts.\nParams:\n - node: https:\/\/developers.supernova.io\/data-contexts\/data-model-objects\/layout\n - parent: https:\/\/developers.supernova.io\/data-contexts\/data-model-objects\/layout"
 }

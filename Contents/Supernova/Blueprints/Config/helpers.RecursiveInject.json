@@ -6,5 +6,5 @@
   "id" : "helpers.RecursiveInject",
   "invocation" : "once",
   "name" : "Recursive Inject",
-  "overview" : ""
+  "overview" : "Recursively injects and nests list blueprints.\nParams: \n - injections: array of dict { id: string, context: dict }\n - injected #body: any content"
 }

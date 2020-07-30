@@ -6,5 +6,5 @@
   "id" : "ui.Shadow",
   "invocation" : "once",
   "name" : "Shadow",
-  "overview" : ""
+  "overview" : "Renders BoxShadow.\nParams:\n - color: Color\n - offset: dict {x: number, y: number }\n - radius: number"
 }

@@ -6,5 +6,5 @@
   "id" : "helpers.ImportRoot",
   "invocation" : "once",
   "name" : "Import Root",
-  "overview" : ""
+  "overview" : "Renders prefix used for importing files within project.\n\nParams: none."
 }

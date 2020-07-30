@@ -6,5 +6,5 @@
   "id" : "ui.decoration.CornerRadius",
   "invocation" : "once",
   "name" : "Decoration \/ Corner Radius",
-  "overview" : ""
+  "overview" : "Computes and renders border radius decoration part.\nParams: \n - style: https:\/\/developers.supernova.io\/data-contexts\/data-model-objects\/style\n - animation: https:\/\/developers.supernova.io\/data-contexts\/data-model-objects\/animation-element\n\nReturns: dict {\n  apply: bool - whether border radius decoration exists and ‘output’ should be used by function caller;\n  output: string - rendered border radius decoration\n}"
 }

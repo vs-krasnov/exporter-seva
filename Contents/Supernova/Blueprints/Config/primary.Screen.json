@@ -6,5 +6,5 @@
   "id" : "primary.Screen",
   "invocation" : "oncePerScreen",
   "name" : "Screen",
-  "overview" : ""
+  "overview" : "Renders a screen\nParams: \n - screenId: string"
 }

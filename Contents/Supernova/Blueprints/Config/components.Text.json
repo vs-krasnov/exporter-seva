@@ -6,5 +6,5 @@
   "id" : "components.Text",
   "invocation" : "oncePerComponent",
   "name" : "Text",
-  "overview" : ""
+  "overview" : "Renders Text widget\nParams:\n - componentId: string"
 }

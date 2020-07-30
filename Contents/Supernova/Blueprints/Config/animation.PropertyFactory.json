@@ -6,5 +6,5 @@
   "id" : "animation.PropertyFactory",
   "invocation" : "oncePerScreen",
   "name" : "Animation Property Factory",
-  "overview" : ""
+  "overview" : "Maps animated property to factory function, which create flutter Animation object. \n\nParams: \n- animatedProperty: https:\/\/developers.supernova.io\/data-contexts\/data-model-objects\/animation-property"
 }

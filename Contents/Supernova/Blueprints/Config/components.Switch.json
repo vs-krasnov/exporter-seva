@@ -7,5 +7,5 @@
   "id" : "components.Switch",
   "invocation" : "oncePerComponent",
   "name" : "Switch",
-  "overview" : ""
+  "overview" : "Renders Switch (on\/off) widget.\nParams:\n - componentId: string"
 }

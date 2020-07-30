@@ -1,2 +1,2 @@
-{[var projectConf @sn.data.projectConfiguration() /]}
+{[var projectConf @project.configuration() /]}
 package:{{projectConf.projectName.snakecased()}}/

@@ -6,5 +6,5 @@
   "id" : "components.ButtonAttributes",
   "invocation" : "oncePerComponent",
   "name" : "Button Attributes",
-  "overview" : ""
+  "overview" : "Renders Button attributes (styling and content). Used in Button widget and App Bar Item.\nParams:\n - componentId: string"
 }

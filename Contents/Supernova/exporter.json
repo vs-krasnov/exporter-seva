@@ -76,7 +76,7 @@
     "ui.decoration.CornerRadius",
     "ui.decoration.BorderColor",
     "ui.decoration.BorderWidth",
-    "animation.PropertyWrapper0"
+    "animation.WidgetChildWrapper"
   ],
   "contactEmail" : "",
   "github" : "https:\/\/github.com\/Supernova-Studio\/supernova-exporter-flutter",
@@ -125,5 +125,5 @@
   "menuItem" : "Flutter Exporter",
   "name" : "Flutter Exporter",
   "overview" : "Flutter exporter supporting all the latest and greatest in the Flutter world. Proudly created and maintained by Supernova.",
-  "version" : "0.1.8"
+  "version" : "0.1.9"
 }

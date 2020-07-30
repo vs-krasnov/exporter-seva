@@ -6,5 +6,5 @@
   "id" : "components.MapView",
   "invocation" : "once",
   "name" : "MapView",
-  "overview" : ""
+  "overview" : "Map View widget. \nParams:\n (no params used)"
 }

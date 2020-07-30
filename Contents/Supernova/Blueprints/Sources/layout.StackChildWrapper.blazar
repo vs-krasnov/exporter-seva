@@ -8,7 +8,7 @@
  {[ set body #body /]}
 {[ else ]}
  {* debug branch for running in editor *}
- {[var layout @compute.layout.flexboxForContainerById(componentId) /]}
+ {[ var layout @compute.layout.flexboxForContainerById(componentId) /]}
  {[ set n layout.children.at(0) /]}
  {[ set p layout /]}
  {[ set body n.componentId.uppercased().extended("'", "'") /]}
@@ -16,7 +16,7 @@
 
 {[ var decoration @call("ui.DecorationFn", @new.dict("componentId", n.componentId)) /]}
 {[ var dimensions @call("layout.DimensionsFn", @new.dict("node", n)) /]}
-{[var position @call("layout.StackChildPositionFn", @new.dict("node", n)) /]}
+{[ var position @call("layout.StackChildPositionFn", @new.dict("node", n)) /]}
 {[ var opacity @new.dict("apply", false) /]}
 
 {[ if @is.nonNil(n.componentId) ]}
@@ -32,20 +32,20 @@
 {[ let needContainer @or(decoration.apply, dimensions.apply) /]}
 {[ if needContainer ]}
   {[ inject "layout.Positioned" context position ]}
-  {[ inject "ui.OpacityWrapper" context @new.dict("opacity", opacity)]}
+  {[ inject "ui.OpacityWrapper" context @new.dict("opacity", opacity) ]}
     Container(
     {[ if dimensions.apply ]}
-      {{dimensions.output}}
+      {{ dimensions.output }}
     {[/]}
     {[ if decoration.apply ]}
-      decoration: {{decoration.output}},
+      decoration: {{ decoration.output }},
     {[/]}
-      child: {{body}},
+      child: {{ body }},
     )
   {[/]} {* OpacityWrapper *}
   {[/]} {* position *}
 {[ else ]}
   {[ inject "layout.Positioned" context position ]}
-    {{body}}
+    {{ body }}
   {[/]}
 {[/]}

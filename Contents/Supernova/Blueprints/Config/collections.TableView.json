@@ -6,5 +6,5 @@
   "id" : "collections.TableView",
   "invocation" : "once",
   "name" : "Table View",
-  "overview" : ""
+  "overview" : "ListView component. Emits files with cells.\nParams:\n - componentId: string"
 }

@@ -6,5 +6,5 @@
   "id" : "primary.Tabgroup",
   "invocation" : "oncePerTabGroup",
   "name" : "Tab group",
-  "overview" : ""
+  "overview" : "Renders Tab Group (bottom navigation tabs)\nParams:\n - groupId: string"
 }

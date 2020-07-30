@@ -6,5 +6,5 @@
   "id" : "animation.isStateBased",
   "invocation" : "oncePerScreen",
   "name" : "Is State Based Animation",
-  "overview" : ""
+  "overview" : "Determines if specified animated property can be rendered with wrappers or with stat.\nParams:\n - animatedProperty: https:\/\/developers.supernova.io\/data-contexts\/data-model-objects\/animation-property"
 }

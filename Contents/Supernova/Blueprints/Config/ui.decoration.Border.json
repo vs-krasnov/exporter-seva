@@ -7,5 +7,5 @@
   "id" : "ui.decoration.Border",
   "invocation" : "once",
   "name" : "Decoration \/ Border",
-  "overview" : ""
+  "overview" : "Computes and renders border decoration.\nParams: \n - style: https:\/\/developers.supernova.io\/data-contexts\/data-model-objects\/style\n - animation: https:\/\/developers.supernova.io\/data-contexts\/data-model-objects\/animation-element\n\nReturns: dict {\n  apply: bool - whether border decoration exists and ‘output’ should be used by function caller;\n  output: string - rendered border decoration\n}"
 }

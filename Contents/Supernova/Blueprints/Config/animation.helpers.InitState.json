@@ -6,5 +6,5 @@
   "id" : "animation.helpers.InitState",
   "invocation" : "once",
   "name" : "Animation State Init Helper ",
-  "overview" : ""
+  "overview" : "Reusable helper for init animations. \nParam: \n - animations - result of 'animation.ScreenAnimations'"
 }

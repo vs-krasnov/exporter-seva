@@ -6,5 +6,5 @@
   "id" : "animation.GenericType",
   "invocation" : "once",
   "name" : "Animation Generic Type",
-  "overview" : ""
+  "overview" : "Converts animated property to matching flutter type. \nParams:\nself: https:\/\/developers.supernova.io\/data-contexts\/data-model-objects\/animation-property"
 }

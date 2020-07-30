@@ -7,5 +7,5 @@
   "id" : "components.ButtonContent",
   "invocation" : "oncePerComponent",
   "name" : "Button Content",
-  "overview" : ""
+  "overview" : "Renders button content - Image and\/or Text.\nParams:\n - componentId: string"
 }

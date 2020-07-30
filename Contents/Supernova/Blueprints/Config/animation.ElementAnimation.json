@@ -6,5 +6,5 @@
   "id" : "animation.ElementAnimation",
   "invocation" : "oncePerScreen",
   "name" : "Element Animation",
-  "overview" : ""
+  "overview" : "Animation widget for single component (element).\nParams:\n - className: string - name of class to generate\n - element: https:\/\/developers.supernova.io\/data-contexts\/data-model-objects\/animation-element "
 }

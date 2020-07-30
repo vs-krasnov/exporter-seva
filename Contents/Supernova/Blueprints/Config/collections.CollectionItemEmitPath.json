@@ -6,5 +6,5 @@
   "id" : "collections.CollectionItemEmitPath",
   "invocation" : "oncePerComponent",
   "name" : "Collection Item Emit Path",
-  "overview" : ""
+  "overview" : "Generates filename for collection item (Grid View, Table View)\nParams:\n - childName: string"
 }

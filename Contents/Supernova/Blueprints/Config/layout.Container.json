@@ -6,5 +6,5 @@
   "id" : "layout.Container",
   "invocation" : "once",
   "name" : "Container Widget",
-  "overview" : ""
+  "overview" : "Creates container with optional dimensions, decoration and margin.\nParams:\n - dimensions: result of `layout.DimensionsFn`\n - decoration: result of  `ui.DecorationFn`\n - insets: result of `layout.InsetsFn`\n - injection #body: content"
 }

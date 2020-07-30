@@ -6,5 +6,5 @@
   "id" : "components.Dispatcher",
   "invocation" : "oncePerComponent",
   "name" : "Component Dispatcher",
-  "overview" : ""
+  "overview" : "Entry point for rendering various components based on component’s type.\nParams:\n - componentId: string"
 }

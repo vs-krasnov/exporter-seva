@@ -6,5 +6,5 @@
   "id" : "layout.LinearContainer",
   "invocation" : "once",
   "name" : "Linear Container",
-  "overview" : ""
+  "overview" : "Linear container (Row or Column).\nParams:\n - node: https:\/\/developers.supernova.io\/data-contexts\/data-model-objects\/layout\n - parent: https:\/\/developers.supernova.io\/data-contexts\/data-model-objects\/layout"
 }

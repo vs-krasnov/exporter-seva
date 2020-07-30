@@ -6,5 +6,5 @@
   "id" : "animation.helpers.DisposeState",
   "invocation" : "once",
   "name" : "Animation State Dispose Helper",
-  "overview" : ""
+  "overview" : "Reusable helper for disposing animations. \nParam: \n - animations - result of 'animation.ScreenAnimations'"
 }

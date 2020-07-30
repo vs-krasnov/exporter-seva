@@ -1,1 +1,1 @@
-{* param self: SNScreen *}{{name.camelcased(true)}}Widget
+{{ name.camelcased(true) }}Widget

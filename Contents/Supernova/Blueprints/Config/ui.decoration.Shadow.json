@@ -7,5 +7,5 @@
   "id" : "ui.decoration.Shadow",
   "invocation" : "oncePerComponent",
   "name" : "Decoration \/ Shadow",
-  "overview" : ""
+  "overview" : "Computes and renders shadow  decoration.\nParams: \n - style: https:\/\/developers.supernova.io\/data-contexts\/data-model-objects\/style\n - animation: https:\/\/developers.supernova.io\/data-contexts\/data-model-objects\/animation-element\n\nReturns: dict {\n  apply: bool - whether shadow decoration exists and ‘output’ should be used by function caller;\n  output: string - rendered shadow decoration\n}"
 }

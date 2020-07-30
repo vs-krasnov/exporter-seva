@@ -1,0 +1,11 @@
+{
+  "editorSettings" : {
+    "editorComponentId" : "5Be-Vz-8Hl",
+    "editorScreenId" : "0V1-lK-p7o"
+  },
+  "group" : "Animation",
+  "id" : "animation.WidgetChildWrapper",
+  "invocation" : "oncePerComponent",
+  "name" : "Animation Widget Child Wrapper",
+  "overview" : "Wraps its body with one of transform animations.\nParams:\n - element: https:\/\/developers.supernova.io\/data-contexts\/data-model-objects\/animation-element\n- type: one of  scaleXY\/scale\/rotateX\/rotateY\/rotateZ\/translateXY\/opacity"
+}

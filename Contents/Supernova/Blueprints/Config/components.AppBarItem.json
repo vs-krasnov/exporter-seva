@@ -6,5 +6,5 @@
   "id" : "components.AppBarItem",
   "invocation" : "once",
   "name" : "App Bar Item",
-  "overview" : ""
+  "overview" : "Renders AppBar Item (Icon Button).\nParams:\n - componentId: string"
 }

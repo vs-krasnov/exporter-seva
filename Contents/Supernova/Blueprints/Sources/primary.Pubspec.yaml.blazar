@@ -1,4 +1,4 @@
-{[var projectConf @sn.data.projectConfiguration() /]}
+{[var projectConf @project.configuration() /]}
 name: {{projectConf.projectName.snakecased()}}
 description: A new Flutter project.
 

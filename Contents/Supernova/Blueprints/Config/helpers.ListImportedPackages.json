@@ -6,5 +6,5 @@
   "id" : "helpers.ListImportedPackages",
   "invocation" : "once",
   "name" : "List Imported Packages",
-  "overview" : ""
+  "overview" : "Returns list of packages which must be imported to render components tree.\nParams: \n - screenId: string\n\nReturns: dict {\n - imports: array of dict { type: string, package: string }\n}"
 }

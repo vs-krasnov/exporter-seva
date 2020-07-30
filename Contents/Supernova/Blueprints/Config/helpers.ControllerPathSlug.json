@@ -6,5 +6,5 @@
   "id" : "helpers.ControllerPathSlug",
   "invocation" : "oncePerScreen",
   "name" : "Controller Path Slug",
-  "overview" : ""
+  "overview" : "Converts name of controller (screen) or tab group to file name.\nParams - one of: \n - screenId: string\n - groupId: string"
 }

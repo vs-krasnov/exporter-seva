@@ -6,5 +6,5 @@
   "id" : "ui.TextStyle",
   "invocation" : "once",
   "name" : "TextStyle",
-  "overview" : ""
+  "overview" : "Renders TextStyle value.\nParams:\n - color: Color\n - font: dict { family: string, weight: number, size: number } \n - kern: number (letter spacing)\n - lineHeight: number"
 }

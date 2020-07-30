@@ -6,5 +6,5 @@
   "id" : "components.AppBar",
   "invocation" : "oncePerScreen",
   "name" : "App Bar",
-  "overview" : ""
+  "overview" : "Renders AppBar widget.\nParams: \n - screenId: string"
 }

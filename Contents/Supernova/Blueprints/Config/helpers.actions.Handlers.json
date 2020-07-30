@@ -6,5 +6,5 @@
   "id" : "helpers.actions.Handlers",
   "invocation" : "oncePerScreen",
   "name" : "Actions Handlers",
-  "overview" : ""
+  "overview" : "Renders action handlers for Buttons and Switches and computes required imports.\nParams: \n - screenId: string\n\nReturns: dict {\n  imports: array of dict { type: string, screnId?: string, groupId?: string }\n  output: rendered action handlers\n}"
 }

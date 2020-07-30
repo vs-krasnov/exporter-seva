@@ -6,5 +6,5 @@
   "id" : "animation.ScreenAnimations",
   "invocation" : "oncePerScreen",
   "name" : "Screen Animations",
-  "overview" : ""
+  "overview" : "Prepares all animations for the screen - generates separate files with Element Animations, prepares imports, generates hash of componentId -> animation"
 }

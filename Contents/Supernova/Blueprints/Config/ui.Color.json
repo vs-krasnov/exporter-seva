@@ -6,5 +6,5 @@
   "id" : "ui.Color",
   "invocation" : "once",
   "name" : "Color",
-  "overview" : ""
+  "overview" : "Renders Color value.\nParams:\n - alpha: number\n - red: number\n - green: number\n - blue: number"
 }

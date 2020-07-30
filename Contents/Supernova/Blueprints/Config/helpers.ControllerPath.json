@@ -6,5 +6,5 @@
   "id" : "helpers.ControllerPath",
   "invocation" : "oncePerScreen",
   "name" : "Controller Path ",
-  "overview" : ""
+  "overview" : "Renders path for controller (screen) or tab group.\nParams - one of: \n - screenId: string\n - groupId: string"
 }

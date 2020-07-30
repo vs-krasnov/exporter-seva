@@ -6,5 +6,5 @@
   "id" : "layout.ExpandedWrapper",
   "invocation" : "once",
   "name" : "Expanded Wrapper",
-  "overview" : ""
+  "overview" : "Conditionally wraps content with Expanded widget.\nParams:\n - flex: dict { apply: bool, value: number }\n - injected #body: any content"
 }

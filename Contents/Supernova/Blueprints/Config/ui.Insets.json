@@ -6,5 +6,5 @@
   "id" : "ui.Insets",
   "invocation" : "once",
   "name" : "Insets",
-  "overview" : ""
+  "overview" : "Renders EdgeInsets value if one of parameters is greather than 0.\nParams: \n - top: number\n - left: number\n - bottom: number\n - right: number"
 }

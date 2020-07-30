@@ -6,5 +6,5 @@
   "id" : "layout.AlignmentWrapper",
   "invocation" : "once",
   "name" : "Alignment Wrapper",
-  "overview" : ""
+  "overview" : "Conditionally Wraps content with Align widget.\nParams: \n - alignment: result of `layout.AlignmentFn`\n - injection #body: any content "
 }

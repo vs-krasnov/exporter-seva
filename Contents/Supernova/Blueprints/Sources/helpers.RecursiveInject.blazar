@@ -4,8 +4,9 @@
 {[   set body #body /]}
 {[   set list injections /]}
 {[ else ]}
+{* ---- debug branch for standalone execution ---- *}
 {[   let x1 @new.dict("id", "helpers.Test").add("context", @new.dict("param", "One")) /]}
-{[   let x2 @new.dict("id", "helpers.Test").add("context", @new.dict("param", "TWO")) /]}
+{[   let x2 @new.dict("id", "helpers.Test").add("context", @new.dict("param", "Two")) /]}
 {[   let x3 @new.dict("id", "helpers.Test").add("context", @new.dict("param", "Three")) /]}
 {[   set list @new.array().append(x1).append(x2).append(x3) /]}
 {[   set body "BODY" /]}
