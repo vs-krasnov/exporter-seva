@@ -76,7 +76,15 @@
     "ui.decoration.CornerRadius",
     "ui.decoration.BorderColor",
     "ui.decoration.BorderWidth",
-    "animation.WidgetChildWrapper"
+    "animation.WidgetChildWrapper",
+    "project.android.build.gradle",
+    "project.android.Name",
+    "project.android.AndroidManifest.short.xml",
+    "project.android.AndroidManifest.xml",
+    "project.android.MainActivity.kt",
+    "project.ios.info.plist",
+    "project.ios.project.pbxproj",
+    "project.ios.Name"
   ],
   "contactEmail" : "",
   "github" : "https:\/\/github.com\/Supernova-Studio\/supernova-exporter-flutter",
@@ -120,10 +128,73 @@
       "overview" : "Writes Tab Groups",
       "rule" : "lib\/{[inject \"helpers.ControllerPath\" context self \/]}\n",
       "type" : "blueprint"
+    },
+    {
+      "blueprintId" : "project.ios.info.plist",
+      "group" : "Project files",
+      "id" : "grAX2Cf1G",
+      "name" : "ios\/Runner\/Info.plist",
+      "overview" : "Writes generic file into root directory",
+      "rule" : "ios\/Runner\/Info.plist",
+      "type" : "blueprint"
+    },
+    {
+      "blueprintId" : "project.ios.project.pbxproj",
+      "group" : "Project files",
+      "id" : "1CQxJ3eOE",
+      "name" : "ios\/Runner.xcodeproj\/project.pbxproj",
+      "overview" : "Writes generic file into root directory",
+      "rule" : "ios\/Runner.xcodeproj\/project.pbxproj",
+      "type" : "blueprint"
+    },
+    {
+      "blueprintId" : "project.android.build.gradle",
+      "group" : "Project files",
+      "id" : "k5qkwdGhM",
+      "name" : "android\/app\/build.gradle",
+      "overview" : "Writes generic file into root directory",
+      "rule" : "android\/app\/build.gradle",
+      "type" : "blueprint"
+    },
+    {
+      "blueprintId" : "project.android.AndroidManifest.short.xml",
+      "group" : "Project files",
+      "id" : "mHsTh7hyI",
+      "name" : "android\/app\/src\/debug\/AndroidManifest.xml",
+      "overview" : "Writes generic file into root directory",
+      "rule" : "android\/app\/src\/debug\/AndroidManifest.xml",
+      "type" : "blueprint"
+    },
+    {
+      "blueprintId" : "project.android.AndroidManifest.xml",
+      "group" : "Project files",
+      "id" : "38oPX7clw",
+      "name" : "android\/app\/src\/main\/AndroidManifest.xml",
+      "overview" : "Writes generic file into root directory",
+      "rule" : "android\/app\/src\/main\/AndroidManifest.xml",
+      "type" : "blueprint"
+    },
+    {
+      "blueprintId" : "project.android.MainActivity.kt",
+      "group" : "Project files",
+      "id" : "3gjaRjkiO",
+      "name" : "android\/app\/src\/main\/kotlin\/ <ProjectName> \/MainActivity.kt",
+      "overview" : "Writes generic file into root directory",
+      "rule" : "{[ let path @call(\"project.android.Name\", @new.dict()).output \/]}\nandroid\/app\/src\/main\/kotlin\/{{ path.replacing(\".\", \"\/\") }}\/MainActivity.kt\t\t",
+      "type" : "blueprint"
+    },
+    {
+      "blueprintId" : "project.android.AndroidManifest.short.xml",
+      "group" : "Project files",
+      "id" : "0IpXPWgDJ",
+      "name" : "android\/app\/src\/profile\/AndroidManifest.xml",
+      "overview" : "Writes generic file into root directory",
+      "rule" : "android\/app\/src\/profile\/AndroidManifest.xml",
+      "type" : "blueprint"
     }
   ],
   "menuItem" : "Flutter Exporter",
   "name" : "Flutter Exporter",
   "overview" : "Flutter exporter supporting all the latest and greatest in the Flutter world. Proudly created and maintained by Supernova.",
-  "version" : "0.1.9"
+  "version" : "0.1.10"
 }
