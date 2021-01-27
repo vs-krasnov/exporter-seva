@@ -1,7 +1,0 @@
-{[var component @project.componentById(componentId) /]}
-{[var text component.style.text /]}
-Text(
-  "{{ text.string.slashNewlines().slashDoubleQuotes() }}",
-   textAlign: {[ inject "ui.TextAlign" context text /]},
-   style: {[inject "ui.TextStyle" context text /]},
-)

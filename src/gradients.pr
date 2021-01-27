@@ -1,0 +1,29 @@
+import 'package:flutter/material.dart';
+
+class SDMGradients {
+  const SDMGradients();
+
+
+{[ let resolvedTokens @dsm.resolveTokens(@dsm.allGradientTokens())  /]}
+{[ for token in resolvedTokens ]}
+  {[ let gradientFromX token.value.from.x.subtractedBy(0.5).multipliedBy(2) /]}
+  {[ let gradientFromY token.value.from.y.subtractedBy(0.5).multipliedBy(2) /]}
+  {[ let gradientToX token.value.to.x.subtractedBy(0.5).multipliedBy(2) /]}
+  {[ let gradientToY token.value.to.y.subtractedBy(0.5).multipliedBy(2) /]}
+
+  final {[ inject "export_token_name" context token.source /]} = const LinearGradient(
+    begin: Alignment({{ gradientFromX }}, {{ gradientFromY }}),
+    end: Alignment({{ gradientToX }}, {{ gradientToY }}),
+    stops: [
+  {[ for stop in token.value.stops ]}
+      {{ stop.position.toString() }},
+  {[/]}
+    ],
+    colors: [
+  {[ for stop in token.value.stops ]}
+      {[ inject "export_color" context stop.color /]},
+  {[/]}
+    ],
+  );
+{[/]}
+}

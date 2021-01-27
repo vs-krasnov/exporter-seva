@@ -1,8 +1,0 @@
-{[var component @project.componentById(componentId) /]}
-Switch.adaptive(
-    inactiveTrackColor: Color.fromARGB(60, 0, 0, 0),
-    value: {[if component.properties.isOn]}true{[else]}false{[/]},
-    onChanged: (isOn) => this.{{component.naming.action}}(context, isOn),
-    activeColor: {[inject "ui.Color" context component.style.tintColor/]},
-    activeTrackColor: {[inject "ui.Color" context component.style.onTintColor/]},
-)

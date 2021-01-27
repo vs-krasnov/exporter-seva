@@ -1,7 +1,0 @@
-{* param childName: string *}
-{[var filename childName.snakecased().suffixed(".dart") /]}
-{[if @is.defined(EMIT_PATH)]}
-{{EMIT_PATH.suffixed(filename)}}
-{[else]}
-{{filename}}
-{[/]}

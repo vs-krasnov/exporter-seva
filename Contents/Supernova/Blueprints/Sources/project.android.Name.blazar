@@ -1,2 +1,0 @@
-{[var projectConf @project.configuration() /]}
-com.example.{{ projectConf.projectName.snakecased() }}

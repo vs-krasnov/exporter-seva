@@ -1,0 +1,45 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+class SDMTextStyles {
+  SDMTextStyles();
+ 
+  {[ let resolvedTokens @dsm.resolveTokens(@dsm.allTypographyTokens())  /]}
+  {[ for token in resolvedTokens ]}
+  {[ let googleFontName token.value.font.value.family.camelcased(false) /]}
+  {[ var fontStyle "normal" /]}
+  {[ if @dsm.fonts.isItalic(token.value.font.value) ]}
+    {[ set fontStyle "italic" /]}
+  {[/]}
+  {[ let fontSize token.value.fontSize.value.measure /]}
+  {[ var decoration "none" /]}
+  {[ switch token.value.textDecoration ]}
+    {[ case "None" ]}
+      {[ set decoration "none" /]}
+    {[ case "Underline" ]}
+      {[ set decoration "underline" /]}
+    {[ case "Strikethrough" ]}
+      {[ set decoration "lineThrough" /]}
+  {[/]}
+  {[ var letterSpacing token.value.letterSpacing.value.measure /]}
+  {[ if token.value.letterSpacing.value.unit.equals("Percent") ]}
+    {[ set letterSpacing fontSize.dividedBy(100).multipliedBy(letterSpacing) /]}
+  {[/]}
+  {[ var lineHeight "null" /]}
+  {[ if @boolean.not(token.value.lineHeight.isNull()) ]}
+    {[ set lineHeight token.value.lineHeight.value.measure /]}
+    {[ if token.value.lineHeight.value.unit.equals("Percent") ]}
+      {[ set lineHeight fontSize.dividedBy(100).multipliedBy(lineHeight) /]}
+    {[/]}
+  {[/]}
+
+  final {[ inject "export_token_name" context token.source /]} = GoogleFonts.{{ googleFontName }}(
+    fontWeight: FontWeight.w{{ @dsm.fonts.weight(token.value.font.value) }},
+    fontStyle: FontStyle.{{ fontStyle }},
+    fontSize: {{ fontSize.toString() }},
+    decoration: TextDecoration.{{ decoration }},
+    letterSpacing: {{ letterSpacing.toString() }},
+    height: {{ lineHeight.toString() }},
+  );
+  {[/]}
+}

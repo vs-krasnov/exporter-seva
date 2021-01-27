@@ -1,0 +1,12 @@
+import 'package:flutter/material.dart';
+
+class SDMColors {
+  const SDMColors();
+
+
+{[ let resolvedTokens @dsm.resolveTokens(@dsm.allColorTokens())  /]}
+{[ for token in resolvedTokens ]}
+  final {[ inject "export_token_name" context token.source /]} = {[ inject "export_color" context token /]};
+{[/]}
+
+}

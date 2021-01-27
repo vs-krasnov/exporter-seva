@@ -1,0 +1,23 @@
+{
+    "id": "io.supernova.flutter",
+    "name": "Flutter Exporter",
+    "description": "Flutter token and style exporter",
+    "author": "Supernova",
+    "organization": "Supernova",
+    "homepage": "https://supernova.io",
+    "source_dir": "src",
+    "version": "1.0",
+    "config": {
+        "blueprints": "blueprints.json",
+        "output": "output.json"
+    },
+    "engines": {
+        "blazar": "1.0",
+        "supernova": "1.0"
+    },
+    "tags": [
+        "Flutter",
+        "Tokens",
+        "Styles"
+    ]
+}

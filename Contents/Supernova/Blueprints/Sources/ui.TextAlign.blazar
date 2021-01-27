@@ -1,4 +1,0 @@
-{[switch alignment]}
-{[case "left"]}TextAlign.left
-{[case "right"]}TextAlign.right
-{[case "center"]}TextAlign.center{[/]}

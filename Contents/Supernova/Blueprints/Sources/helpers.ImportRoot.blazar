@@ -1,2 +1,0 @@
-{[var projectConf @project.configuration() /]}
-package:{{projectConf.projectName.snakecased()}}/

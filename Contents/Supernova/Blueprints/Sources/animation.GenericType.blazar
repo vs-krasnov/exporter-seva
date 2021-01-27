@@ -1,2 +1,0 @@
-{* param self: AnimatedProperty *}
-{[ switch valueType ]}{[ case "double" ]}double{[ case "color" ]}Color{[ case "size" ]}Offset{[ default ]}Unknown{[/]}

@@ -1,0 +1,20 @@
+{
+    "blueprints": [
+        {
+            "invoke": "colors.pr",
+            "write_to": "colors.dart"
+        },
+        {
+            "invoke": "gradients.pr",
+            "write_to": "gradients.dart"
+        },
+        {
+            "invoke": "shadows.pr",
+            "write_to": "shadows.dart"
+        },
+        {
+            "invoke": "text_styles.pr",
+            "write_to": "text_styles.dart"
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+import 'package:flutter/material.dart';
+
+class SDMShadows {
+  const SDMShadows();
+
+
+{[ let resolvedTokens @dsm.resolveTokens(@dsm.allShadowTokens())  /]}
+{[ for token in resolvedTokens ]}
+  final {[ inject "export_token_name" context token.source /]} = const BoxShadow(
+    color: {[ inject "export_color" context token.value.color /]},
+    offset: Offset({{ token.value.x.value.measure.toString() }}, {{ token.value.x.value.measure.toString() }}),
+    blurRadius: {{token.value.radius.value.measure.toString()}},
+    spreadRadius: {{token.value.spread.value.measure.toString()}},
+  );
+{[/]}
+
+}

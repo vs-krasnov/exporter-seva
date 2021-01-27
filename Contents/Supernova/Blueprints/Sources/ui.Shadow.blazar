@@ -1,6 +1,0 @@
-BoxShadow(
-    color: {[ inject "ui.Color" context color /]},
-    offset: Offset({{ offset.x }}, {{ offset.y }}),
-    blurRadius: {{ radius }},
-    {* spreadRadius: {{spread}}, *}
-)

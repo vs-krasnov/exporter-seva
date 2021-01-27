@@ -1,0 +1,6 @@
+{[ let colorValue value.substring(1, 8) /]}
+{[ let alpha colorValue.substring(6, 2) /]}
+{[ let red colorValue.substring(0, 2) /]}
+{[ let green colorValue.substring(2, 2) /]}
+{[ let blue colorValue.substring(4, 2) /]}
+const Color(0x{{alpha}}{{red}}{{green}}{{blue}})

@@ -1,5 +1,0 @@
-GoogleMap(
-    onMapCreated: (controller) {
-                      
-    },
-)

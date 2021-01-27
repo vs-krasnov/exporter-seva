@@ -1,8 +1,0 @@
-{[ if flex.apply ]}
-Expanded(
-   flex: {{ flex.value.rounded(5) }},
-   child: {{ #body }},
-)
-{[ else ]}
-{{ #body }}
-{[/]}

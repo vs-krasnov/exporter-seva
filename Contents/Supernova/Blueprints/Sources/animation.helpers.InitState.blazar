@@ -1,4 +1,0 @@
-{* param: animations result of ScreenAnimatinos *}
-{[ for animation in animations.animatedComponents.values() ]}
-this.{{animation.controllerName}} = AnimationController(duration: Duration(milliseconds: {{animation.duration.multipliedBy(1000).rounded(0)}}), vsync: this);
-{[/]}

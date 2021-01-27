@@ -1,8 +1,0 @@
-{[ if opacity.apply ]}
-Opacity(
-   opacity: {{ opacity.value.rounded(5) }},
-   child: {{ #body }},
-)
-{[ else ]}
-{{#body}}
-{[/]}

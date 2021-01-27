@@ -1,8 +1,0 @@
-{* param: screenId: string or groupId: string *}
-{[ var item nil /]}
-{[ if @is.nonNil(screenId) ]}
-{[ set item @project.screenById(screenId) /]}
-{[ else ]}
-{[ set item @project.tabGroupById(groupId) /]}
-{[/]}
-{{ item.name.camelcased(false).snakecased().lowercased().suffixed("_widget") }}

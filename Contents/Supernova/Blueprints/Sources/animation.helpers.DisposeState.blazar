@@ -1,3 +1,0 @@
-{[ for animation in animations.animatedComponents.values() ]}
-this.{{ animation.controllerName }}.dispose();
-{[/]}
