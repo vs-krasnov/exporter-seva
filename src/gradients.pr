@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class SDMGradients {
   const SDMGradients();
 
-
 {[ let resolvedTokens @dsm.resolveTokens(@dsm.allGradientTokens())  /]}
 {[ for token in resolvedTokens ]}
   {[ let gradientFromX token.value.from.x.subtractedBy(0.5).multipliedBy(2) /]}

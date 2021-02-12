@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 class SDMTextStyles {
   SDMTextStyles();
- 
   {[ let resolvedTokens @dsm.resolveTokens(@dsm.allTypographyTokens())  /]}
   {[ for token in resolvedTokens ]}
   {[ let googleFontName token.value.font.value.family.camelcased(false) /]}
