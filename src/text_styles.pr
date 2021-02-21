@@ -26,9 +26,9 @@ class SDMTextStyles {
   {[/]}
   {[ var lineHeight "null" /]}
   {[ if @boolean.not(token.value.lineHeight.isNull()) ]}
-    {[ set lineHeight token.value.lineHeight.value.measure /]}
+    {[ set lineHeight token.value.lineHeight.value.measure.dividedBy(fontSize) /]}
     {[ if token.value.lineHeight.value.unit.equals("Percent") ]}
-      {[ set lineHeight fontSize.dividedBy(100).multipliedBy(lineHeight) /]}
+      {[ set lineHeight fontSize.dividedBy(100).multipliedBy(lineHeight).dividedBy(fontSize) /]}
     {[/]}
   {[/]}
 
